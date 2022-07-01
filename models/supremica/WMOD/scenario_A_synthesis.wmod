@@ -1,0 +1,650 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module xmlns="http://waters.sourceforge.net/xsd/module" xmlns:B="http://waters.sourceforge.net/xsd/base" Name="scenario_A_synthesis">
+<EventDeclList>
+<EventDecl Kind="CONTROLLABLE" Name="human_transition"/>
+<EventDecl Kind="CONTROLLABLE" Name="human_reach_in_cover"/>
+<EventDecl Kind="CONTROLLABLE" Name="human_reach_in_housing"/>
+<EventDecl Kind="CONTROLLABLE" Name="human_press_button"/>
+<EventDecl Kind="CONTROLLABLE" Name="human_mount_cover"/>
+<EventDecl Kind="CONTROLLABLE" Name="human_retract_hand"/>
+<EventDecl Kind="CONTROLLABLE" Name="human_reach_parts"/>
+<EventDecl Kind="CONTROLLABLE" Name="robot_move_to_housing"/>
+<EventDecl Kind="CONTROLLABLE" Name="robot_insert_gearwheel"/>
+<EventDecl Kind="CONTROLLABLE" Name="robot_move_back"/>
+<EventDecl Kind="PROPOSITION" Name=":accepting"/>
+<EventDecl Kind="CONTROLLABLE" Name="collision"/>
+</EventDeclList>
+<ComponentList>
+<SimpleComponent Kind="PLANT" Name="human">
+<Graph>
+<NodeList>
+<SimpleNode Initial="true" Name="S0">
+<PointGeometry>
+<Point X="320" Y="112"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S1">
+<PointGeometry>
+<Point X="464" Y="-272"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S2">
+<PointGeometry>
+<Point X="-32" Y="-192"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S3">
+<PointGeometry>
+<Point X="-32" Y="400"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S4">
+<PointGeometry>
+<Point X="480" Y="480"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S5">
+<PointGeometry>
+<Point X="736" Y="112"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S6">
+<PointGeometry>
+<Point X="1056" Y="112"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+</NodeList>
+<EdgeList>
+<Edge Source="S0" Target="S1">
+<LabelBlock>
+<SimpleIdentifier Name="human_press_button"/>
+<LabelGeometry Anchor="NW">
+<Point X="-89" Y="-126"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="357" Y="-95"/>
+</SplineGeometry>
+<GuardActionBlock>
+<Actions>
+<BinaryExpression Operator="=">
+<SimpleIdentifier Name="robot_activated"/>
+<IntConstant Value="1"/>
+</BinaryExpression>
+</Actions>
+<LabelGeometry Anchor="NW">
+<Point X="-86" Y="-108"/>
+</LabelGeometry>
+</GuardActionBlock>
+</Edge>
+<Edge Source="S1" Target="S0">
+<LabelBlock>
+<SimpleIdentifier Name="human_retract_hand"/>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="4"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="439" Y="-76"/>
+</SplineGeometry>
+<GuardActionBlock>
+<Actions>
+<BinaryExpression Operator="=">
+<SimpleIdentifier Name="collab_workspace_occupied_human"/>
+<IntConstant Value="0"/>
+</BinaryExpression>
+</Actions>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="20"/>
+</LabelGeometry>
+</GuardActionBlock>
+</Edge>
+<Edge Source="S0" Target="S2">
+<LabelBlock>
+<SimpleIdentifier Name="human_mount_cover"/>
+<LabelGeometry Anchor="NW">
+<Point X="-88" Y="38"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="112" Y="-10"/>
+</SplineGeometry>
+<GuardActionBlock>
+<Guards>
+<BinaryExpression Operator="==">
+<SimpleIdentifier Name="cover_mounted"/>
+<IntConstant Value="0"/>
+</BinaryExpression>
+</Guards>
+<Actions>
+<BinaryExpression Operator="=">
+<SimpleIdentifier Name="collab_workspace_occupied_human"/>
+<IntConstant Value="1"/>
+</BinaryExpression>
+<BinaryExpression Operator="=">
+<SimpleIdentifier Name="cover_mounted"/>
+<IntConstant Value="1"/>
+</BinaryExpression>
+</Actions>
+<LabelGeometry Anchor="NW">
+<Point X="-165" Y="58"/>
+</LabelGeometry>
+</GuardActionBlock>
+</Edge>
+<Edge Source="S2" Target="S0">
+<LabelBlock>
+<SimpleIdentifier Name="human_retract_hand"/>
+<LabelGeometry Anchor="NW">
+<Point X="-70" Y="-87"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="170" Y="-79"/>
+</SplineGeometry>
+<GuardActionBlock>
+<Actions>
+<BinaryExpression Operator="=">
+<SimpleIdentifier Name="collab_workspace_occupied_human"/>
+<IntConstant Value="0"/>
+</BinaryExpression>
+</Actions>
+<LabelGeometry Anchor="NW">
+<Point X="-68" Y="-71"/>
+</LabelGeometry>
+</GuardActionBlock>
+</Edge>
+<Edge Source="S0" Target="S3">
+<LabelBlock>
+<SimpleIdentifier Name="human_reach_in_cover"/>
+</LabelBlock>
+<SplineGeometry>
+<Point X="184" Y="299"/>
+</SplineGeometry>
+<GuardActionBlock>
+<Guards>
+<BinaryExpression Operator="==">
+<SimpleIdentifier Name="parts_taken"/>
+<IntConstant Value="1"/>
+</BinaryExpression>
+</Guards>
+<LabelGeometry Anchor="NW">
+<Point X="11" Y="31"/>
+</LabelGeometry>
+</GuardActionBlock>
+</Edge>
+<Edge Source="S3" Target="S0">
+<LabelBlock>
+<SimpleIdentifier Name="human_retract_hand"/>
+<LabelGeometry Anchor="NW">
+<Point X="-150" Y="-5"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="113" Y="226"/>
+</SplineGeometry>
+<GuardActionBlock>
+<Actions>
+<BinaryExpression Operator="=">
+<SimpleIdentifier Name="collab_workspace_occupied_human"/>
+<IntConstant Value="0"/>
+</BinaryExpression>
+</Actions>
+<LabelGeometry Anchor="NW">
+<Point X="-269" Y="11"/>
+</LabelGeometry>
+</GuardActionBlock>
+</Edge>
+<Edge Source="S0" Target="S4">
+<LabelBlock>
+<SimpleIdentifier Name="human_reach_in_housing"/>
+<LabelGeometry Anchor="NW">
+<Point X="40" Y="6"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="453" Y="273"/>
+</SplineGeometry>
+<GuardActionBlock>
+<Guards>
+<BinaryExpression Operator="==">
+<SimpleIdentifier Name="parts_taken"/>
+<IntConstant Value="1"/>
+</BinaryExpression>
+</Guards>
+<Actions>
+<BinaryExpression Operator="=">
+<SimpleIdentifier Name="collab_workspace_occupied_human"/>
+<IntConstant Value="1"/>
+</BinaryExpression>
+</Actions>
+<LabelGeometry Anchor="NW">
+<Point X="42" Y="25"/>
+</LabelGeometry>
+</GuardActionBlock>
+</Edge>
+<Edge Source="S4" Target="S0">
+<LabelBlock>
+<SimpleIdentifier Name="human_retract_hand"/>
+<LabelGeometry Anchor="NW">
+<Point X="-53" Y="102"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="373" Y="317"/>
+</SplineGeometry>
+<GuardActionBlock>
+<Actions>
+<BinaryExpression Operator="=">
+<SimpleIdentifier Name="collab_workspace_occupied_human"/>
+<IntConstant Value="0"/>
+</BinaryExpression>
+</Actions>
+<LabelGeometry Anchor="NW">
+<Point X="-142" Y="123"/>
+</LabelGeometry>
+</GuardActionBlock>
+</Edge>
+<Edge Source="S5" Target="S0">
+<LabelBlock>
+<SimpleIdentifier Name="human_transition"/>
+<LabelGeometry Anchor="NW">
+<Point X="-43" Y="4"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="535" Y="160"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S5" Target="S6">
+<LabelBlock>
+<SimpleIdentifier Name="human_reach_parts"/>
+<LabelGeometry Anchor="NW">
+<Point X="-58" Y="-45"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="897" Y="79"/>
+</SplineGeometry>
+<GuardActionBlock>
+<Actions>
+<BinaryExpression Operator="=">
+<SimpleIdentifier Name="parts_taken"/>
+<IntConstant Value="1"/>
+</BinaryExpression>
+</Actions>
+<LabelGeometry Anchor="NW">
+<Point X="-31" Y="-28"/>
+</LabelGeometry>
+</GuardActionBlock>
+</Edge>
+<Edge Source="S6" Target="S5">
+<LabelBlock>
+<SimpleIdentifier Name="human_retract_hand"/>
+<LabelGeometry Anchor="NW">
+<Point X="-48" Y="7"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="896" Y="146"/>
+</SplineGeometry>
+<GuardActionBlock>
+<Actions>
+<BinaryExpression Operator="=">
+<SimpleIdentifier Name="collab_workspace_occupied_human"/>
+<IntConstant Value="0"/>
+</BinaryExpression>
+</Actions>
+<LabelGeometry Anchor="NW">
+<Point X="-91" Y="24"/>
+</LabelGeometry>
+</GuardActionBlock>
+</Edge>
+<Edge Source="S0" Target="S5">
+<LabelBlock>
+<SimpleIdentifier Name="human_transition"/>
+<LabelGeometry Anchor="NW">
+<Point X="-51" Y="-24"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="531" Y="68"/>
+</SplineGeometry>
+</Edge>
+</EdgeList>
+</Graph>
+</SimpleComponent>
+<SimpleComponent Kind="SPEC" Name="safety_spec">
+<Graph>
+<NodeList>
+<SimpleNode Initial="true" Name="S0">
+<PointGeometry>
+<Point X="368" Y="112"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S1">
+<EventList>
+<SimpleIdentifier Name=":accepting"/>
+</EventList>
+<PointGeometry>
+<Point X="368" Y="336"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+</NodeList>
+<EdgeList>
+<Edge Source="S0" Target="S1">
+<LabelBlock>
+<SimpleIdentifier Name="collision"/>
+<LabelGeometry Anchor="NW">
+<Point X="22" Y="-8"/>
+</LabelGeometry>
+</LabelBlock>
+<GuardActionBlock>
+<Guards>
+<BinaryExpression Operator="&amp;" Text="collab_workspace_occupied_human==1 &amp; collab_workspace_occupied_robot==1">
+<BinaryExpression Operator="==">
+<SimpleIdentifier Name="collab_workspace_occupied_human"/>
+<IntConstant Value="1"/>
+</BinaryExpression>
+<BinaryExpression Operator="==">
+<SimpleIdentifier Name="collab_workspace_occupied_robot"/>
+<IntConstant Value="1"/>
+</BinaryExpression>
+</BinaryExpression>
+</Guards>
+<LabelGeometry Anchor="NW">
+<Point X="19" Y="8"/>
+</LabelGeometry>
+</GuardActionBlock>
+</Edge>
+</EdgeList>
+</Graph>
+</SimpleComponent>
+<VariableComponent Name="collab_workspace_occupied_human">
+<VariableRange><BinaryExpression Operator="..">
+<IntConstant Value="0"/>
+<IntConstant Value="1"/>
+</BinaryExpression>
+</VariableRange>
+<VariableInitial><BinaryExpression Operator="==">
+<SimpleIdentifier Name="collab_workspace_occupied_human"/>
+<IntConstant Value="0"/>
+</BinaryExpression>
+</VariableInitial>
+</VariableComponent>
+<VariableComponent Name="collab_workspace_occupied_robot">
+<VariableRange><BinaryExpression Operator="..">
+<IntConstant Value="0"/>
+<IntConstant Value="1"/>
+</BinaryExpression>
+</VariableRange>
+<VariableInitial><BinaryExpression Operator="==">
+<SimpleIdentifier Name="collab_workspace_occupied_robot"/>
+<IntConstant Value="0"/>
+</BinaryExpression>
+</VariableInitial>
+</VariableComponent>
+<VariableComponent Name="parts_taken">
+<VariableRange><BinaryExpression Operator="..">
+<IntConstant Value="0"/>
+<IntConstant Value="1"/>
+</BinaryExpression>
+</VariableRange>
+<VariableInitial><BinaryExpression Operator="==">
+<SimpleIdentifier Name="parts_taken"/>
+<IntConstant Value="0"/>
+</BinaryExpression>
+</VariableInitial>
+</VariableComponent>
+<VariableComponent Name="robot_activated">
+<VariableRange><BinaryExpression Operator="..">
+<IntConstant Value="0"/>
+<IntConstant Value="1"/>
+</BinaryExpression>
+</VariableRange>
+<VariableInitial><BinaryExpression Operator="==">
+<SimpleIdentifier Name="robot_activated"/>
+<IntConstant Value="0"/>
+</BinaryExpression>
+</VariableInitial>
+</VariableComponent>
+<SimpleComponent Kind="PLANT" Name="robot">
+<Graph>
+<NodeList>
+<SimpleNode Initial="true" Name="S0">
+<PointGeometry>
+<Point X="160" Y="288"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S1">
+<PointGeometry>
+<Point X="384" Y="288"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+</NodeList>
+<EdgeList>
+<Edge Source="S0" Target="S1">
+<LabelBlock>
+<SimpleIdentifier Name="robot_move_to_housing"/>
+<LabelGeometry Anchor="NW">
+<Point X="-60" Y="-78"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="272" Y="269"/>
+</SplineGeometry>
+<GuardActionBlock>
+<Guards>
+<BinaryExpression Operator="==">
+<SimpleIdentifier Name="robot_activated"/>
+<IntConstant Value="1"/>
+</BinaryExpression>
+</Guards>
+<Actions>
+<BinaryExpression Operator="=">
+<SimpleIdentifier Name="collab_workspace_occupied_robot"/>
+<IntConstant Value="1"/>
+</BinaryExpression>
+</Actions>
+<LabelGeometry Anchor="NW">
+<Point X="-86" Y="-55"/>
+</LabelGeometry>
+</GuardActionBlock>
+</Edge>
+<Edge Source="S1" Target="S0">
+<LabelBlock>
+<SimpleIdentifier Name="robot_move_back"/>
+<LabelGeometry Anchor="NW">
+<Point X="-49" Y="10"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="272" Y="307"/>
+</SplineGeometry>
+<GuardActionBlock>
+<Guards>
+<BinaryExpression Operator="==">
+<SimpleIdentifier Name="gearwheel_inserted"/>
+<IntConstant Value="1"/>
+</BinaryExpression>
+</Guards>
+<Actions>
+<BinaryExpression Operator="=">
+<SimpleIdentifier Name="robot_activated"/>
+<IntConstant Value="0"/>
+</BinaryExpression>
+<BinaryExpression Operator="=">
+<SimpleIdentifier Name="collab_workspace_occupied_robot"/>
+<IntConstant Value="0"/>
+</BinaryExpression>
+</Actions>
+<LabelGeometry Anchor="NW">
+<Point X="-64" Y="33"/>
+</LabelGeometry>
+</GuardActionBlock>
+</Edge>
+<Edge Source="S1" Target="S1">
+<LabelBlock>
+<SimpleIdentifier Name="robot_insert_gearwheel"/>
+<LabelGeometry Anchor="NW">
+<Point X="6" Y="-8"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="454" Y="272"/>
+</SplineGeometry>
+<GuardActionBlock>
+<Guards>
+<BinaryExpression Operator="==">
+<SimpleIdentifier Name="gearwheel_inserted"/>
+<IntConstant Value="0"/>
+</BinaryExpression>
+</Guards>
+<Actions>
+<BinaryExpression Operator="=">
+<SimpleIdentifier Name="gearwheel_inserted"/>
+<IntConstant Value="1"/>
+</BinaryExpression>
+</Actions>
+<LabelGeometry Anchor="NW">
+<Point X="9" Y="9"/>
+</LabelGeometry>
+</GuardActionBlock>
+</Edge>
+</EdgeList>
+</Graph>
+</SimpleComponent>
+<VariableComponent Name="gearwheel_inserted">
+<VariableRange><BinaryExpression Operator="..">
+<IntConstant Value="0"/>
+<IntConstant Value="1"/>
+</BinaryExpression>
+</VariableRange>
+<VariableInitial><BinaryExpression Operator="==">
+<SimpleIdentifier Name="gearwheel_inserted"/>
+<IntConstant Value="0"/>
+</BinaryExpression>
+</VariableInitial>
+</VariableComponent>
+<SimpleComponent Kind="PLANT" Name="workpiece">
+<Graph>
+<NodeList>
+<SimpleNode Initial="true" Name="S0">
+<PointGeometry>
+<Point X="176" Y="176"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S1">
+<PointGeometry>
+<Point X="176" Y="432"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="S2">
+<PointGeometry>
+<Point X="400" Y="176"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="10"/>
+</LabelGeometry>
+</SimpleNode>
+</NodeList>
+<EdgeList>
+<Edge Source="S0" Target="S2">
+<LabelBlock>
+<SimpleIdentifier Name="human_mount_cover"/>
+<LabelGeometry Anchor="NW">
+<Point X="-63" Y="-34"/>
+</LabelGeometry>
+</LabelBlock>
+</Edge>
+<Edge Source="S1" Target="S2">
+<LabelBlock>
+<SimpleIdentifier Name="human_mount_cover"/>
+</LabelBlock>
+</Edge>
+<Edge Source="S0" Target="S1">
+<LabelBlock>
+<SimpleIdentifier Name="robot_insert_gearwheel"/>
+<LabelGeometry Anchor="NW">
+<Point X="-159" Y="-10"/>
+</LabelGeometry>
+</LabelBlock>
+</Edge>
+<Edge Source="S0" Target="S0">
+<LabelBlock>
+<SimpleIdentifier Name="human_reach_in_housing"/>
+<SimpleIdentifier Name="human_reach_in_cover"/>
+<LabelGeometry Anchor="NW">
+<Point X="-173" Y="-24"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="96" Y="188"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="S1" Target="S1">
+<LabelBlock>
+<SimpleIdentifier Name="human_reach_in_cover"/>
+<LabelGeometry Anchor="NW">
+<Point X="-154" Y="-22"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="100" Y="466"/>
+</SplineGeometry>
+</Edge>
+</EdgeList>
+</Graph>
+</SimpleComponent>
+<VariableComponent Name="cover_mounted">
+<VariableRange><BinaryExpression Operator="..">
+<IntConstant Value="0"/>
+<IntConstant Value="1"/>
+</BinaryExpression>
+</VariableRange>
+<VariableInitial><BinaryExpression Operator="==">
+<SimpleIdentifier Name="cover_mounted"/>
+<IntConstant Value="0"/>
+</BinaryExpression>
+</VariableInitial>
+</VariableComponent>
+</ComponentList>
+</Module>

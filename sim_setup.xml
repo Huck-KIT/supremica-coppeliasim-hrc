@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<simulation_settings>
+	<motion_parameters>
+		<min>
+			<x>-0.2</x>
+			<y>0.8</y>
+			<z>1</z>
+		</min>
+		<max>
+			<x>0.2</x>
+			<y>1.2</y>
+			<z>1.5</z>
+		</max>
+		<nominal>
+			<x>0</x>
+			<y>1</y>
+			<z>1</z>
+		</nominal>
+	</motion_parameters>
+	<paths>
+		<action_sequence_path_supervisor>
+			"models/supremica/CSV/action_sequences_supervisor_scenario_A.csv"
+		</action_sequence_path_supervisor>
+		<action_sequence_path_workflow>
+			"..."
+		</action_sequence_path_workflow>
+	</paths>
+</simulation_settings>
