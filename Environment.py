@@ -26,7 +26,7 @@ class Environment:
             if event.getAttribute("label") == event_label:
                 return event
         return None
-
+        
     def workflow_transition(self,current_state_id,event):
         for transition in self.transitions:
             if transition.getAttribute("source") == current_state_id and transition.getAttribute("event") == event.getAttribute("id"):
@@ -34,6 +34,15 @@ class Environment:
                 return transition.getAttribute("dest")
         # print("Event "+event.getAttribute("label")+" not feasible in state "+current_state_id)
         return None
+
+    def workflow_get_feasible_actions(self, current_state_id):
+        feasible_actions = list()
+        for transition in self.transitions:
+            if transition.getAttribute("source") == current_state_id:
+                action = self.events[int(transition.getAttribute("event"))] #attribute id is saved as string --> cast to int
+                if not (action in feasible_actions):
+                    feasible_actions.append(action)
+        return feasible_actions
 
     def workflow_check_acceptance(self, input_sequence):
         current_state_id = self.initial_state.getAttribute("id")

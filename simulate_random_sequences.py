@@ -7,7 +7,7 @@ from xml.dom.minidom import parse, Node
 
 ########################## Simulation Settings #################################
 scenario = 1 # Currently available: {1,2}
-use_random_parameters = True
+use_random_parameters = False
 n_simulation_runs = 960
 log_results = True
 
@@ -48,20 +48,23 @@ with b0RemoteApi.RemoteApiClient('b0RemoteApi_V-REP-addOn','b0RemoteApiAddOn') a
         print("random sequence: ")
         print(random_sequence)
         assert env.workflow_check_acceptance(random_sequence), "sequence not accepted"
-        random_params = list()
-        for j in range(len(motionParametersMin)):
-            random_params.append(motionParametersMin[j] + (motionParametersMax[j]-motionParametersMin[j])*random.random())
+        current_parameters = list()
+        if use_random_parameters:
+            for j in range(len(motionParametersMin)):
+                current_parameters.append(motionParametersMin[j] + (motionParametersMax[j]-motionParametersMin[j])*random.random())
+        else:
+            current_parameters = env.sim_params_nominal
         print("random parameters:")
-        print(random_params)
+        print(current_parameters)
         # simulate the sequence
         current_max_risk = 0
         for current_action in random_sequence:
-            risk = env.sim_step(current_action,random_params)
+            risk = env.sim_step(current_action,current_parameters)
             if risk > current_max_risk:
                 current_max_risk = risk
         # log the results and reset the simulator
         sequence_log.append(random_sequence)
-        parameter_log.append(random_params)
+        parameter_log.append(current_parameters)
         risk_log.append(current_max_risk)
         print("Risk logged: "+str(current_max_risk))
         env.sim_reset()
