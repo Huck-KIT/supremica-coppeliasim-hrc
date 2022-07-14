@@ -1,13 +1,17 @@
 import csv
+import random
 from xml.dom.minidom import parse, Node
 
 class Environment:
-    def __init__(self,sim_client,sim_params_min,sim_params_max,sim_params_nominal,workflow_xml_path):
+    def __init__(self,sim_client,sim_params_min,sim_params_max,sim_params_nominal,workflow_xml_path,manual_trigger):
         # assign constructor inputs
         self.client = sim_client
         self.sim_params_max = sim_params_max
         self.sim_params_min = sim_params_min
         self.sim_params_nominal = sim_params_nominal
+        self.step_counter = 0
+        self.manual_trigger = manual_trigger
+        self.parameters_current = sim_params_nominal
 
         with open(workflow_xml_path) as file:
             document = parse(file)
@@ -26,7 +30,7 @@ class Environment:
             if event.getAttribute("label") == event_label:
                 return event
         return None
-        
+
     def workflow_transition(self,current_state_id,event):
         for transition in self.transitions:
             if transition.getAttribute("source") == current_state_id and transition.getAttribute("event") == event.getAttribute("id"):
@@ -68,13 +72,25 @@ class Environment:
         assert len(parameters) == len(self.sim_params_max), "too many/few parameters"
         for i in range(len(parameters)):
             assert parameters[i] <= self.sim_params_max and parameters[i] >= self.sim_params_min[i], "parameter "+str(i)+"out fo bounds"
+        self.parameters_current = parameters
         """ TODO: call script function to set parameters """
+
+    def sim_randomize_parameters(self):
+        current_parameters = list() # use default parameters
+        for i in range(3):
+            current_parameters.append(self.sim_params_min[i]+(self.sim_params_max[i]-self.sim_params_min[i])*random.random())
+        self.parameters_current = current_parameters
 
     def sim_reset(self):
         print("--------- reset simulation ---------")
         self.client.simxCallScriptFunction("reset@Bill","sim.scripttype_childscript",1,self.client.simxServiceCall())
+        self.step_counter = 0
 
     def sim_step(self,action,parameters):
+        if self.manual_trigger:
+            print("press enter to continue")
+            input()
+        self.step_counter +=1
         current_max_risk = 0
         assert action in self.action_space, "Action not in action space!"
         action_is_set = False
@@ -92,6 +108,8 @@ class Environment:
         assert isReset, "error - could not reset risk metric after action"
         return current_max_risk
 
+    def get_step_number(self):
+        return self.step_counter
 
     def sim_stop(self):
         self.client.simxStopSimulation(self.client.simxServiceCall())

@@ -55,7 +55,7 @@ with b0RemoteApi.RemoteApiClient('b0RemoteApi_V-REP-addOn','b0RemoteApiAddOn') a
             if use_random_parameters:
                 current_parameters = list() # use default parameters
                 for i in range(3):
-                    current_parameters.append(env.sim_params_max[i]+(env.sim_params_max[i]-env.sim_params_min[i])*random.random())
+                    current_parameters.append(env.sim_params_min[i]+(env.sim_params_max[i]-env.sim_params_min[i])*random.random())
                 print("parameters selected:")
                 print(current_parameters)
             else:
