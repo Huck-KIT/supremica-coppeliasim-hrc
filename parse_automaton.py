@@ -4,11 +4,11 @@ import csv
 from xml.dom.minidom import parse, Node
 
 #settings
-max_sequence_length = 9
+max_sequence_length = 10
 save_results = True
-terminate_on_event = False
-filepath_source = "models/supremica/XML/human_model_scenario_A.xml"
-filepath_dest = "models/supremica/CSV/action_sequences_human_model_scenario_A.csv"
+terminate_on_event = True
+filepath_source = "models/supremica/XML/supervisor_scenario_B.xml"
+filepath_dest = "models/supremica/CSV/action_sequences_supervisor_scenario_B.csv"
 
 # initializations
 language_subset = list()
@@ -188,7 +188,10 @@ with open(filepath_source) as file:
     transitions = document.getElementsByTagName("Transition")
 
     initial_state   = states[0]
-    terminal_event  = None#events[0]
+    if terminate_on_event:
+        terminal_event  = events[0] #None for human model
+    else:
+        terminal_event = None
 
     current_state_id_global = "0"
     current_sequence = list()

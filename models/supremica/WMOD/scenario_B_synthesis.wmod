@@ -113,28 +113,6 @@
 </LabelGeometry>
 </GuardActionBlock>
 </Edge>
-<Edge Source="S3" Target="S0">
-<LabelBlock>
-<SimpleIdentifier Name="human_retract_hand"/>
-<LabelGeometry Anchor="NW">
-<Point X="-65" Y="-46"/>
-</LabelGeometry>
-</LabelBlock>
-<SplineGeometry>
-<Point X="835" Y="333"/>
-</SplineGeometry>
-<GuardActionBlock>
-<Guards>
-<BinaryExpression Operator="!=">
-<SimpleIdentifier Name="part_status"/>
-<IntConstant Value="1"/>
-</BinaryExpression>
-</Guards>
-<LabelGeometry Anchor="NW">
-<Point X="-42" Y="-25"/>
-</LabelGeometry>
-</GuardActionBlock>
-</Edge>
 <Edge Source="S0" Target="S1">
 <LabelBlock>
 <SimpleIdentifier Name="human_transition_2"/>
@@ -149,7 +127,9 @@
 <Actions>
 <BinaryExpression Operator="=">
 <SimpleIdentifier Name="laser_scanner_occupied"/>
-<IntConstant Value="1"/>
+<UnaryExpression Operator="!">
+<SimpleIdentifier Name="laser_scanner_occupied"/>
+</UnaryExpression>
 </BinaryExpression>
 </Actions>
 <LabelGeometry Anchor="NW">
@@ -171,11 +151,13 @@
 <Actions>
 <BinaryExpression Operator="=">
 <SimpleIdentifier Name="laser_scanner_occupied"/>
-<IntConstant Value="0"/>
+<UnaryExpression Operator="!">
+<SimpleIdentifier Name="laser_scanner_occupied"/>
+</UnaryExpression>
 </BinaryExpression>
 </Actions>
 <LabelGeometry Anchor="NW">
-<Point X="-173" Y="19"/>
+<Point X="-315" Y="28"/>
 </LabelGeometry>
 </GuardActionBlock>
 </Edge>
@@ -265,6 +247,17 @@
 <SplineGeometry>
 <Point X="-440" Y="119"/>
 </SplineGeometry>
+<GuardActionBlock>
+<Actions>
+<BinaryExpression Operator="=">
+<SimpleIdentifier Name="collaborative_workspace_occupied"/>
+<IntConstant Value="0"/>
+</BinaryExpression>
+</Actions>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="20"/>
+</LabelGeometry>
+</GuardActionBlock>
 </Edge>
 <Edge Source="S2" Target="S5">
 <LabelBlock>
@@ -358,6 +351,28 @@
 </Guards>
 <LabelGeometry Anchor="NW">
 <Point X="-44" Y="-23"/>
+</LabelGeometry>
+</GuardActionBlock>
+</Edge>
+<Edge Source="S3" Target="S0">
+<LabelBlock>
+<SimpleIdentifier Name="human_retract_hand"/>
+<LabelGeometry Anchor="NW">
+<Point X="-69" Y="5"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="835" Y="333"/>
+</SplineGeometry>
+<GuardActionBlock>
+<Actions>
+<BinaryExpression Operator="=">
+<SimpleIdentifier Name="collaborative_workspace_occupied"/>
+<IntConstant Value="0"/>
+</BinaryExpression>
+</Actions>
+<LabelGeometry Anchor="NW">
+<Point X="0" Y="20"/>
 </LabelGeometry>
 </GuardActionBlock>
 </Edge>

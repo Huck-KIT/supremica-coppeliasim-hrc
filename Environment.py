@@ -1,3 +1,27 @@
+"""
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Environment.py
+
+Author: Tom P. Huck
+Karlsruhe Institute of Technology (KIT), Karlsruhe, Germany
+Date: 2022-07-08
+
+This module defines the Environment class, which encapsulates all
+functionalities of the simulator and the automaton.
+
+Automaton:
+- Get list of feasible actions in given state
+- Get next state for given state and action
+- Check if sequence of events is accepted by the automaton
+
+Simulator:
+- Start simulations
+- Perform actions in simulation and retrieve risk metric
+- Reset simulation state
+- Stop simulation
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+"""
+
 import csv
 import random
 from xml.dom.minidom import parse, Node
@@ -24,6 +48,8 @@ class Environment:
             self.action_space.append(event.getAttribute("label"))
         self.initial_state   = self.states[0]
         self.terminal_event  = self.events[0]
+
+    """ ---------------------- Automaton functions --------------------------"""
 
     def workflow_get_event_by_label(self,event_label):
         for event in self.events:
@@ -63,6 +89,9 @@ class Environment:
                     return False
         return True
 
+
+    """ ---------------------- Simulator functions --------------------------"""
+
     def sim_start(self):
         self.client.simxSynchronous(True)
         self.client.simxStartSimulation(self.client.simxServiceCall())
@@ -93,10 +122,13 @@ class Environment:
         self.step_counter +=1
         current_max_risk = 0
         assert action in self.action_space, "Action not in action space!"
+
         action_is_set = False
         while not action_is_set:
             action_is_set,_ = self.client.simxCallScriptFunction("setAction@Bill","sim.scripttype_childscript",action,self.client.simxServiceCall())
+            self.client.simxCallScriptFunction("setMotionParameters@Bill","sim.scripttype_childscript",parameters,self.client.simxServiceCall())
             self.client.simxSynchronousTrigger()
+
         action_is_running = True
         while action_is_running:
             self.client.simxSynchronousTrigger()
@@ -104,6 +136,7 @@ class Environment:
             _,risk = self.client.simxCallScriptFunction("getMaxRisk@RiskMetricCalculator","sim.scripttype_childscript",1,self.client.simxServiceCall())
             if risk > current_max_risk:
                 current_max_risk =  risk
+
         isReset = self.client.simxCallScriptFunction("resetMaxRisk@RiskMetricCalculator","sim.scripttype_childscript",1,self.client.simxServiceCall())
         assert isReset, "error - could not reset risk metric after action"
         return current_max_risk

@@ -7,8 +7,9 @@ from xml.dom.minidom import parse, Node
 
 ########################## Simulation Settings #################################
 scenario = 1 # Currently available: {1,2}
-use_random_parameters = False
-n_simulation_runs = 960
+use_random_parameters = True
+trigger_actions_manually = False
+n_simulation_runs = 10
 log_results = True
 
 ####################### Load scenario parameters ###############################
@@ -39,7 +40,7 @@ with open(action_sequence_filepath, newline='') as csvfile:
 
 with b0RemoteApi.RemoteApiClient('b0RemoteApi_V-REP-addOn','b0RemoteApiAddOn') as client:  #This line defines the client, which provides all functions of the remote API
     # create and initialize simution environment
-    env = Environment.Environment(client,motionParametersMin,motionParametersMax,motionParametersNominal,automaton_filepath)
+    env = Environment.Environment(client,motionParametersMin,motionParametersMax,motionParametersNominal,automaton_filepath,trigger_actions_manually)
     env.sim_start()
     # sample random action sequence and parameters
     for i in range(n_simulation_runs):
@@ -69,3 +70,11 @@ with b0RemoteApi.RemoteApiClient('b0RemoteApi_V-REP-addOn','b0RemoteApiAddOn') a
         print("Risk logged: "+str(current_max_risk))
         env.sim_reset()
     env.sim_stop()
+
+if log_results:
+    with open(results_filepath, 'w', newline='') as csvfile:
+        fieldnames = ['sequence', 'param', 'risk']
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writeheader()
+        for i in range(len(sequence_log)):
+            writer.writerow({fieldnames[0]: sequence_log[i], fieldnames[1]: parameter_log[i], fieldnames[2]:risk_log[i]})

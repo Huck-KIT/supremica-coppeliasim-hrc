@@ -1,3 +1,16 @@
+"""
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+simulate_supervisor_sequences.py
+
+Author: Tom P. Huck
+Karlsruhe Institute of Technology (KIT), Karlsruhe, Germany
+Date: 2022-01-15
+
+This script simualtes action sequences which were previously generated through
+supervisor synthesis in supremica and saved at 'action_sequence_filepath.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+"""
+
 import b0RemoteApi
 import random
 import time
