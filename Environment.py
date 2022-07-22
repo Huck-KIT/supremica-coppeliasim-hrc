@@ -34,6 +34,7 @@ class Environment:
         self.sim_params_min = sim_params_min
         self.sim_params_nominal = sim_params_nominal
         self.step_counter = 0
+        self.current_max_risk = 0 # tracks risk value of ongoing simulation
         self.manual_trigger = manual_trigger
         self.parameters_current = sim_params_nominal
 
@@ -114,13 +115,14 @@ class Environment:
         print("--------- reset simulation ---------")
         self.client.simxCallScriptFunction("reset@Bill","sim.scripttype_childscript",1,self.client.simxServiceCall())
         self.step_counter = 0
+        self.current_max_risk = 0
 
     def sim_step(self,action,parameters):
         if self.manual_trigger:
             print("press enter to continue")
             input()
         self.step_counter +=1
-        current_max_risk = 0
+        current_max_risk_action = 0 # current max risk incurred in this action
         assert action in self.action_space, "Action not in action space!"
 
         action_is_set = False
@@ -134,12 +136,18 @@ class Environment:
             self.client.simxSynchronousTrigger()
             _,action_is_running = self.client.simxCallScriptFunction("isHumanModelActive@Bill","sim.scripttype_childscript",1,self.client.simxServiceCall())
             _,risk = self.client.simxCallScriptFunction("getMaxRisk@RiskMetricCalculator","sim.scripttype_childscript",1,self.client.simxServiceCall())
-            if risk > current_max_risk:
-                current_max_risk =  risk
+            if risk > current_max_risk_action:
+                current_max_risk_action =  risk
 
         isReset = self.client.simxCallScriptFunction("resetMaxRisk@RiskMetricCalculator","sim.scripttype_childscript",1,self.client.simxServiceCall())
         assert isReset, "error - could not reset risk metric after action"
-        return current_max_risk
+        print("risk incurred in this action: "+str(current_max_risk_action))
+        if current_max_risk_action > self.current_max_risk:
+            self.current_max_risk = current_max_risk_action # update overall max risk
+        return current_max_risk_action
+
+    def get_max_risk(self):
+        return self.current_max_risk
 
     def get_step_number(self):
         return self.step_counter

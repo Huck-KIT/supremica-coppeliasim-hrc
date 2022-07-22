@@ -6,22 +6,31 @@ import Environment
 from xml.dom.minidom import parse, Node
 
 ########################## Simulation Settings #################################
-scenario = 1 # Currently available: {1,2}
+scenario = 2 # Currently available: {1,2}
 use_random_parameters = True
 trigger_actions_manually = False
-n_simulation_runs = 10
+n_simulation_runs = 500
 log_results = True
+
+random.seed(6)
 
 ####################### Load scenario parameters ###############################
 if scenario == 1:
     motionParametersMin = [-0.2,0.8, 1]
     motionParametersMax = [0.2, 1.2, 1.5]
-    motionParametersNominal = [0,1,1]
+    motionParametersNominal = [0, 1, 1]
     automaton_filepath = "models/supremica/XML/human_model_scenario_A.xml"
     action_sequence_filepath="models/supremica/CSV/action_sequences_human_model_scenario_A.csv"
     results_filepath = "results/results_random_scenario_A.csv"
+elif scenario == 2:
+    motionParametersMin = [0.7, -0.1, -0.1]
+    motionParametersMax = [1.3, 0, 0.1]
+    motionParametersNominal = [1, 0, 0]
+    automaton_filepath = "models/supremica/XML/human_model_scenario_B.xml"
+    action_sequence_filepath="models/supremica/CSV/action_sequences_human_model_scenario_B.csv"#action_sequences_supervisor_scenario_B.csv"#
+    results_filepath = "results/results_random_scenario_B.csv"
 else:
-    "Error! Select valid scenario number (1) in line 9!"
+    "Error! Select valid scenario number (1 or 2) in line 9!"
 
 ############################ Run Simulations ###################################
 # initialize logs
@@ -60,6 +69,7 @@ with b0RemoteApi.RemoteApiClient('b0RemoteApi_V-REP-addOn','b0RemoteApiAddOn') a
         # simulate the sequence
         current_max_risk = 0
         for current_action in random_sequence:
+            print("next action: "+current_action)
             risk = env.sim_step(current_action,current_parameters)
             if risk > current_max_risk:
                 current_max_risk = risk

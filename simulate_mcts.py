@@ -128,7 +128,7 @@ class MCTSNode():
                 rollout_reward =  r
 
         print("reward incurred in this rollout phase: " + str(rollout_reward))
-        self.write_to_csv(self.state + rollout_actions, self.env.parameters_current, rollout_reward)
+        self.write_to_csv(self.state + rollout_actions, self.env.parameters_current, self.env.get_max_risk())
         return rollout_reward
 
     def rollout_policy(self, possible_moves):
@@ -172,8 +172,9 @@ class MCTSNode():
 
 """--------------------------------- Main -----------------------------------"""
 
-max_episode_length = 9
-scenario = 1
+max_episode_length = 12
+scenario = 2
+random.seed(9001)
 
 if scenario == 1:
     sim_params_min = [-0.2, 0.8, 1]
@@ -181,6 +182,12 @@ if scenario == 1:
     sim_params_nominal = [0,1,1]
     workflow_xml_path = "models/supremica/XML/human_model_scenario_A.xml" # automaton xml file (created from supremica)
     results_filepath = "results/results_mcts_scenario_A.csv" # log file
+elif scenario == 2:
+    sim_params_min = [0.7, -0.1, -0.1]
+    sim_params_max = [1.3, 0, 0.1]
+    sim_params_nominal = [1, 0, 0]
+    workflow_xml_path = "models/supremica/XML/human_model_scenario_B.xml"
+    results_filepath = "results/results_mcts_scenario_B.csv"
 else:
     print("error - enter valid scenario (must be 1 or 2)")
 

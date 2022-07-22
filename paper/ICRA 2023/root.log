@@ -1,0 +1,1037 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.12) (preloaded format=pdflatex 2021.12.29)  22 JUL 2022 17:31
+entering extended mode
+**./root.tex
+(root.tex
+LaTeX2e <2020-02-02> patch level 1
+L3 programming layer <2020-02-08> (ieeeconf.cls
+Document Class: ieeeconf 2016/4/23 revision V1.6b by Pradeep Misra
+\@IEEEtrantmpdimenA=\dimen134
+\@IEEEtrantmpdimenB=\dimen135
+\@IEEEtrantmpcountA=\count167
+\@IEEEtrantmpcountB=\count168
+\@IEEEtrantmptoksA=\toks14
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 7
+94.
+(/home/huck/.miktex/texmfs/install/tex/latex/psnfss/ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+\@IEEEnormalsizefontbaselineskip=\skip47
+
+-- This is a 10 point document.
+\normalsizebaselineskip=\skip48
+\normaljot=\skip49
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1113.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <5> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1113.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1113.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1113.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1113.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <8> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1113.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1113.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1113.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1113.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1113.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <11> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1113.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <11> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1113.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1113.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1113.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <16> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1113.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <16> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1113.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1113.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <20> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1113.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1113.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <24> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1113.
+
+\IEEEilabelindentA=\dimen136
+\IEEEilabelindentB=\dimen137
+\IEEEilabelindent=\dimen138
+\IEEEelabelindent=\dimen139
+\IEEEdlabelindent=\dimen140
+\labelindent=\dimen141
+\IEEEiednormlabelsep=\dimen142
+\IEEEiedmathlabelsep=\dimen143
+\IEEEiedtopsep=\skip50
+\c@section=\count169
+\c@subsection=\count170
+\c@subsubsection=\count171
+\c@paragraph=\count172
+\c@IEEEsubequation=\count173
+\abovecaptionskip=\skip51
+\belowcaptionskip=\skip52
+\c@figure=\count174
+\c@table=\count175
+\@IEEEeqnnumcols=\count176
+\@IEEEeqncolcnt=\count177
+\@IEEEtmpitemindent=\dimen144
+\c@biography=\count178
+\@IEEEtranrubishbin=\box45
+)
+** ATTENTION: Overriding command lockouts (line 8).
+** ATTENTION: Overriding IEEE standard margins (line 11).
+(/home/huck/.miktex/texmfs/install/tex/latex/graphics/color.sty
+Package: color 2019/11/23 v1.2a Standard LaTeX Color (DPC)
+
+(/home/huck/.miktex/texmfs/install/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 147.
+
+(/home/huck/.miktex/texmfs/install/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+(/home/huck/.miktex/texmfs/install/tex/latex/graphics/graphicx.sty
+Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/home/huck/.miktex/texmfs/install/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks15
+)
+(/home/huck/.miktex/texmfs/install/tex/latex/graphics/graphics.sty
+Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
+
+(/home/huck/.miktex/texmfs/install/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/home/huck/.miktex/texmfs/install/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+)
+\Gin@req@height=\dimen145
+\Gin@req@width=\dimen146
+)
+(/home/huck/.miktex/texmfs/install/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2020/01/20 v2.17e AMS math features
+\@mathmargin=\skip53
+
+For additional information on amsmath, use the `?' option.
+(/home/huck/.miktex/texmfs/install/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/home/huck/.miktex/texmfs/install/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks16
+\ex@=\dimen147
+))
+(/home/huck/.miktex/texmfs/install/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen148
+)
+(/home/huck/.miktex/texmfs/install/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count179
+LaTeX Info: Redefining \frac on input line 227.
+\uproot@=\count180
+\leftroot@=\count181
+LaTeX Info: Redefining \overline on input line 389.
+\classnum@=\count182
+\DOTSCASE@=\count183
+LaTeX Info: Redefining \ldots on input line 486.
+LaTeX Info: Redefining \dots on input line 489.
+LaTeX Info: Redefining \cdots on input line 610.
+\Mathstrutbox@=\box46
+\strutbox@=\box47
+\big@size=\dimen149
+LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
+\macc@depth=\count184
+\c@MaxMatrixCols=\count185
+\dotsspace@=\muskip16
+\c@parentequation=\count186
+\dspbrk@lvl=\count187
+\tag@help=\toks17
+\row@=\count188
+\column@=\count189
+\maxfields@=\count190
+\andhelp@=\toks18
+\eqnshift@=\dimen150
+\alignsep@=\dimen151
+\tagshift@=\dimen152
+\tagwidth@=\dimen153
+\totwidth@=\dimen154
+\lineht@=\dimen155
+\@envbody=\toks19
+\multlinegap=\skip54
+\multlinetaggap=\skip55
+\mathdisplay@stack=\toks20
+LaTeX Info: Redefining \[ on input line 2859.
+LaTeX Info: Redefining \] on input line 2860.
+)
+(/home/huck/.miktex/texmfs/install/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/home/huck/.miktex/texmfs/install/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/home/huck/.miktex/texmfs/install/tex/latex/jknappen/mathrsfs.sty
+Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
+\symrsfs=\mathgroup6
+)
+(/home/huck/.miktex/texmfs/install/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2021-02-10 v7.00j Hypertext links for LaTeX
+
+(/home/huck/.miktex/texmfs/install/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2019/12/15 v1.24 LaTeX kernel commands for general use (HO)
+)
+(/home/huck/.miktex/texmfs/install/tex/generic/iftex/iftex.sty
+Package: iftex 2019/11/07 v1.0c TeX engine tests
+)
+(/home/huck/.miktex/texmfs/install/tex/latex/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2019/11/24 v0.31 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/home/huck/.miktex/texmfs/install/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/home/huck/.miktex/texmfs/install/tex/generic/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+)
+(/home/huck/.miktex/texmfs/install/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)
+(/home/huck/.miktex/texmfs/install/tex/generic/pdfescape/pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+)
+(/home/huck/.miktex/texmfs/install/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+)
+(/home/huck/.miktex/texmfs/install/tex/latex/letltxmacro/letltxmacro.sty
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+)
+(/home/huck/.miktex/texmfs/install/tex/latex/auxhook/auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+)
+(/home/huck/.miktex/texmfs/install/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
+)
+\@linkdim=\dimen156
+\Hy@linkcounter=\count191
+\Hy@pagecounter=\count192
+
+(/home/huck/.miktex/texmfs/install/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2021-02-10 v7.00j Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+(/home/huck/.miktex/texmfs/install/tex/latex/hyperref/hyperref-langpatches.def
+File: hyperref-langpatches.def 2021-02-10 v7.00j Hyperref: patches for babel la
+nguages
+) (/home/huck/.miktex/texmfs/install/tex/generic/intcalc/intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+(/home/huck/.miktex/texmfs/install/tex/generic/etexcmds/etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)
+\Hy@SavedSpaceFactor=\count193
+
+(/home/huck/.miktex/texmfs/install/tex/latex/hyperref/puenc.def
+File: puenc.def 2021-02-10 v7.00j Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 4073.
+Package hyperref Info: Hyper figures OFF on input line 4192.
+Package hyperref Info: Link nesting OFF on input line 4197.
+Package hyperref Info: Hyper index ON on input line 4200.
+Package hyperref Info: Plain pages OFF on input line 4207.
+Package hyperref Info: Backreferencing OFF on input line 4212.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4445.
+\c@Hy@tempcnt=\count194
+
+(/home/huck/.miktex/texmfs/install/tex/latex/url/url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4804.
+\XeTeXLinkMargin=\dimen157
+
+(/home/huck/.miktex/texmfs/install/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+
+(/home/huck/.miktex/texmfs/install/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count195
+\Field@Width=\dimen158
+\Fld@charsize=\dimen159
+Package hyperref Info: Hyper figures OFF on input line 6075.
+Package hyperref Info: Link nesting OFF on input line 6080.
+Package hyperref Info: Hyper index ON on input line 6083.
+Package hyperref Info: backreferencing OFF on input line 6090.
+Package hyperref Info: Link coloring ON on input line 6093.
+Package hyperref Info: Link coloring with OCG OFF on input line 6100.
+Package hyperref Info: PDF/A mode OFF on input line 6105.
+LaTeX Info: Redefining \ref on input line 6145.
+LaTeX Info: Redefining \pageref on input line 6149.
+
+(/home/huck/.miktex/texmfs/install/tex/generic/atbegshi/atbegshi.sty
+Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
+)
+\Hy@abspage=\count196
+\c@Item=\count197
+\c@Hfootnote=\count198
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+
+(/home/huck/.miktex/texmfs/install/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2021-02-10 v7.00j Hyperref driver for pdfTeX
+
+(/home/huck/.miktex/texmfs/install/tex/latex/atveryend/atveryend.sty
+Package: atveryend 2019-12-11 v1.11 Hooks at the very end of document (HO)
+Package atveryend Info: \enddocument detected (standard20110627).
+)
+\Fld@listcount=\count199
+\c@bookmark@seq@number=\count266
+
+(/home/huck/.miktex/texmfs/install/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
+
+(/home/huck/.miktex/texmfs/install/tex/generic/uniquecounter/uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+86.
+)
+\Hy@SectionHShift=\skip56
+) (/home/huck/.miktex/texmfs/install/tex/latex/subfig/subfig.sty
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+
+
+Package subfig Warning: Your document class has a bad definition
+ of \endfigure, most likely
+ \let\endfigure=\end@float
+ which has now been changed to
+ \def\endfigure{\end@float}
+ because otherwise subsequent changes to \end@float
+ (like done by several packages changing float behaviour)
+ can't take effect on \endfigure.
+ Please complain to your document class author.
+
+
+Package subfig Warning: Your document class has a bad definition
+ of \endtable, most likely
+ \let\endtable=\end@float
+ which has now been changed to
+ \def\endtable{\end@float}
+ because otherwise subsequent changes to \end@float
+ (like done by several packages changing float behaviour)
+ can't take effect on \endtable.
+ Please complain to your document class author.
+
+(/home/huck/.miktex/texmfs/install/tex/latex/caption/caption3.sty
+Package: caption3 2020/07/20 v1.12b caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 61.
+\captionmargin=\dimen160
+\captionmargin@=\dimen161
+\captionwidth=\dimen162
+\caption@tempdima=\dimen163
+\caption@indent=\dimen164
+\caption@parindent=\dimen165
+\caption@hangindent=\dimen166
+Package caption Info: Unknown document class (or package),
+(caption)             standard defaults will be used.
+Package caption Info: \@makecaption = \long macro:#1#2->\ifx \@captype \@IEEEta
+blestring \begin {center}{\footnotesize #1}\\{\footnotesize \scshape #2}\end {c
+enter}\@IEEEtablecaptionsepspace \else \@IEEEfigurecaptionsepspace \setbox \@te
+mpboxa \hbox {\footnotesize #1.~~ #2}\ifdim \wd \@tempboxa >\hsize \setbox \@te
+mpboxa \hbox {\footnotesize #1.~~ }\parbox [t]{\hsize }{\footnotesize \noindent
+ \unhbox \@tempboxa #2}\else \ifcenterfigcaptions \hbox to\hsize {\footnotesize
+ \hfil \box \@tempboxa \hfil }\else \hbox to\hsize {\footnotesize \box \@tempbo
+xa \hfil }\fi \fi \fi  on input line 1055.
+)
+\c@KVtest=\count267
+\sf@farskip=\skip57
+\sf@captopadj=\dimen167
+\sf@capskip=\skip58
+\sf@nearskip=\skip59
+\c@subfigure=\count268
+\c@subfigure@save=\count269
+\c@lofdepth=\count270
+\c@subtable=\count271
+\c@subtable@save=\count272
+\c@lotdepth=\count273
+\sf@top=\skip60
+\sf@bottom=\skip61
+)
+(/home/huck/.miktex/texmfs/install/tex/latex/sttools/stfloats.sty
+Package: stfloats 2017/03/27 v3.3 Improve float mechanism and baselineskip sett
+ings
+\@dblbotnum=\count274
+\c@dblbotnumber=\count275
+)
+(/home/huck/.miktex/texmfs/install/tex/latex/algorithms/algorithm.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
+nment
+
+(/home/huck/.miktex/texmfs/install/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count276
+\float@exts=\toks21
+\float@box=\box48
+\@float@everytoks=\toks22
+\@floatcapt=\box49
+)
+(/home/huck/.miktex/texmfs/install/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\@float@every@algorithm=\toks23
+\c@algorithm=\count277
+)
+(/home/huck/.miktex/texmfs/install/tex/latex/algorithms/algorithmic.sty
+Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
+\c@ALC@unique=\count278
+\c@ALC@line=\count279
+\c@ALC@rem=\count280
+\c@ALC@depth=\count281
+\ALC@tlm=\skip62
+\algorithmicindent=\skip63
+)
+(/home/huck/.miktex/texmfs/install/tex/latex/pgf/basiclayer/pgf.sty
+(/home/huck/.miktex/texmfs/install/tex/latex/pgf/utilities/pgfrcs.sty
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/utilities/pgfutil-common.tex
+\pgfutil@everybye=\toks24
+\pgfutil@tempdima=\dimen168
+\pgfutil@tempdimb=\dimen169
+
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/utilities/pgfutil-common-lis
+ts.tex))
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box50
+
+(/home/huck/.miktex/texmfs/install/tex/latex/ms/everyshi.sty
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+))
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/utilities/pgfrcs.code.tex
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/pgf.revision.tex)
+Package: pgfrcs 2020/01/08 v3.1.5b (3.1.5b)
+))
+Package: pgf 2020/01/08 v3.1.5b (3.1.5b)
+
+(/home/huck/.miktex/texmfs/install/tex/latex/pgf/basiclayer/pgfcore.sty
+(/home/huck/.miktex/texmfs/install/tex/latex/pgf/systemlayer/pgfsys.sty
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2020/01/08 v3.1.5b (3.1.5b)
+
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks25
+\pgfkeys@temptoks=\toks26
+
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/utilities/pgfkeysfiltered.co
+de.tex
+\pgfkeys@tmptoks=\toks27
+))
+\pgf@x=\dimen170
+\pgf@y=\dimen171
+\pgf@xa=\dimen172
+\pgf@ya=\dimen173
+\pgf@xb=\dimen174
+\pgf@yb=\dimen175
+\pgf@xc=\dimen176
+\pgf@yc=\dimen177
+\pgf@xd=\dimen178
+\pgf@yd=\dimen179
+\w@pgf@writea=\write3
+\r@pgf@reada=\read2
+\c@pgf@counta=\count282
+\c@pgf@countb=\count283
+\c@pgf@countc=\count284
+\c@pgf@countd=\count285
+\t@pgf@toka=\toks28
+\t@pgf@tokb=\toks29
+\t@pgf@tokc=\toks30
+\pgf@sys@id@count=\count286
+ (/home/huck/.miktex/texmfs/install/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2020/01/08 v3.1.5b (3.1.5b)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/systemlayer/pgfsys-pdftex.de
+f
+File: pgfsys-pdftex.def 2020/01/08 v3.1.5b (3.1.5b)
+
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/systemlayer/pgfsys-common-pd
+f.def
+File: pgfsys-common-pdf.def 2020/01/08 v3.1.5b (3.1.5b)
+)))
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/systemlayer/pgfsyssoftpath.c
+ode.tex
+File: pgfsyssoftpath.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgfsyssoftpath@smallbuffer@items=\count287
+\pgfsyssoftpath@bigbuffer@items=\count288
+)
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/systemlayer/pgfsysprotocol.c
+ode.tex
+File: pgfsysprotocol.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)) (/home/huck/.miktex/texmfs/install/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+(/home/huck/.miktex/texmfs/install/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+LaTeX Info: Redefining \color on input line 709.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+)
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2020/01/08 v3.1.5b (3.1.5b)
+
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/math/pgfmath.code.tex
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/math/pgfmathcalc.code.tex
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/math/pgfmathutil.code.tex)
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen180
+\pgfmath@count=\count289
+\pgfmath@box=\box51
+\pgfmath@toks=\toks31
+\pgfmath@stack@operand=\toks32
+\pgfmath@stack@operation=\toks33
+)
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/math/pgfmathfunctions.code.t
+ex
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/math/pgfmathfunctions.basic.
+code.tex)
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/math/pgfmathfunctions.trigon
+ometric.code.tex)
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/math/pgfmathfunctions.random
+.code.tex)
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/math/pgfmathfunctions.compar
+ison.code.tex)
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/math/pgfmathfunctions.base.c
+ode.tex)
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/math/pgfmathfunctions.round.
+code.tex)
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/math/pgfmathfunctions.misc.c
+ode.tex)
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/math/pgfmathfunctions.intege
+rarithmetics.code.tex)))
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count290
+)) (/home/huck/.miktex/texmfs/install/tex/generic/pgf/math/pgfint.code.tex)
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcorepoints.cod
+e.tex
+File: pgfcorepoints.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@picminx=\dimen181
+\pgf@picmaxx=\dimen182
+\pgf@picminy=\dimen183
+\pgf@picmaxy=\dimen184
+\pgf@pathminx=\dimen185
+\pgf@pathmaxx=\dimen186
+\pgf@pathminy=\dimen187
+\pgf@pathmaxy=\dimen188
+\pgf@xx=\dimen189
+\pgf@xy=\dimen190
+\pgf@yx=\dimen191
+\pgf@yy=\dimen192
+\pgf@zx=\dimen193
+\pgf@zy=\dimen194
+)
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcorepathconstr
+uct.code.tex
+File: pgfcorepathconstruct.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@path@lastx=\dimen195
+\pgf@path@lasty=\dimen196
+)
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcorepathusage.
+code.tex
+File: pgfcorepathusage.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@shorten@end@additional=\dimen197
+\pgf@shorten@start@additional=\dimen198
+)
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcorescopes.cod
+e.tex
+File: pgfcorescopes.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgfpic=\box52
+\pgf@hbox=\box53
+\pgf@layerbox@main=\box54
+\pgf@picture@serial@count=\count291
+)
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcoregraphicsta
+te.code.tex
+File: pgfcoregraphicstate.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgflinewidth=\dimen199
+)
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcoretransforma
+tions.code.tex
+File: pgfcoretransformations.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@pt@x=\dimen256
+\pgf@pt@y=\dimen257
+\pgf@pt@temp=\dimen258
+)
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcorequick.code
+.tex
+File: pgfcorequick.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcoreobjects.co
+de.tex
+File: pgfcoreobjects.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcorepathproces
+sing.code.tex
+File: pgfcorepathprocessing.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcorearrows.cod
+e.tex
+File: pgfcorearrows.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgfarrowsep=\dimen259
+)
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcoreshade.code
+.tex
+File: pgfcoreshade.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@max=\dimen260
+\pgf@sys@shading@range@num=\count292
+\pgf@shadingcount=\count293
+)
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcoreimage.code
+.tex
+File: pgfcoreimage.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcoreexternal.c
+ode.tex
+File: pgfcoreexternal.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgfexternal@startupbox=\box55
+))
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcorelayers.cod
+e.tex
+File: pgfcorelayers.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcoretransparen
+cy.code.tex
+File: pgfcoretransparency.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcorepatterns.c
+ode.tex
+File: pgfcorepatterns.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcorerdf.code.t
+ex
+File: pgfcorerdf.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)))
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/modules/pgfmoduleshapes.code
+.tex
+File: pgfmoduleshapes.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgfnodeparttextbox=\box56
+)
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/modules/pgfmoduleplot.code.t
+ex
+File: pgfmoduleplot.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+(/home/huck/.miktex/texmfs/install/tex/latex/pgf/compatibility/pgfcomp-version-
+0-65.sty
+Package: pgfcomp-version-0-65 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@nodesepstart=\dimen261
+\pgf@nodesepend=\dimen262
+)
+(/home/huck/.miktex/texmfs/install/tex/latex/pgf/compatibility/pgfcomp-version-
+1-18.sty
+Package: pgfcomp-version-1-18 2020/01/08 v3.1.5b (3.1.5b)
+))
+(/home/huck/.miktex/texmfs/install/tex/latex/pgf/frontendlayer/tikz.sty
+(/home/huck/.miktex/texmfs/install/tex/latex/pgf/utilities/pgffor.sty
+(/home/huck/.miktex/texmfs/install/tex/latex/pgf/utilities/pgfkeys.sty
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/utilities/pgfkeys.code.tex))
+(/home/huck/.miktex/texmfs/install/tex/latex/pgf/math/pgfmath.sty
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/math/pgfmath.code.tex))
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2020/01/08 v3.1.5b (3.1.5b)
+
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/math/pgfmath.code.tex)
+\pgffor@iter=\dimen263
+\pgffor@skip=\dimen264
+\pgffor@stack=\toks34
+\pgffor@toks=\toks35
+))
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/frontendlayer/tikz/tikz.code
+.tex
+Package: tikz 2020/01/08 v3.1.5b (3.1.5b)
+
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/libraries/pgflibraryplothand
+lers.code.tex
+File: pgflibraryplothandlers.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@plot@mark@count=\count294
+\pgfplotmarksize=\dimen265
+)
+\tikz@lastx=\dimen266
+\tikz@lasty=\dimen267
+\tikz@lastxsaved=\dimen268
+\tikz@lastysaved=\dimen269
+\tikz@lastmovetox=\dimen270
+\tikz@lastmovetoy=\dimen271
+\tikzleveldistance=\dimen272
+\tikzsiblingdistance=\dimen273
+\tikz@figbox=\box57
+\tikz@figbox@bg=\box58
+\tikz@tempbox=\box59
+\tikz@tempbox@bg=\box60
+\tikztreelevel=\count295
+\tikznumberofchildren=\count296
+\tikznumberofcurrentchild=\count297
+\tikz@fig@count=\count298
+
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/modules/pgfmodulematrix.code
+.tex
+File: pgfmodulematrix.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgfmatrixcurrentrow=\count299
+\pgfmatrixcurrentcolumn=\count300
+\pgf@matrix@numberofcolumns=\count301
+)
+\tikz@expandcount=\count302
+
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries
+/tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)))
+\c@definition=\count303
+
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries
+/tikzlibraryarrows.code.tex
+File: tikzlibraryarrows.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/libraries/pgflibraryarrows.c
+ode.tex
+File: pgflibraryarrows.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\arrowsize=\dimen274
+))
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries
+/tikzlibraryautomata.code.tex
+File: tikzlibraryautomata.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries
+/tikzlibraryshapes.multipart.code.tex
+File: tikzlibraryshapes.multipart.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/libraries/shapes/pgflibrarys
+hapes.multipart.code.tex
+File: pgflibraryshapes.multipart.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgfnodepartlowerbox=\box61
+\pgfnodeparttwobox=\box62
+\pgfnodepartthreebox=\box63
+\pgfnodepartfourbox=\box64
+\pgfnodeparttwentybox=\box65
+\pgfnodepartnineteenbox=\box66
+\pgfnodeparteighteenbox=\box67
+\pgfnodepartseventeenbox=\box68
+\pgfnodepartsixteenbox=\box69
+\pgfnodepartfifteenbox=\box70
+\pgfnodepartfourteenbox=\box71
+\pgfnodepartthirteenbox=\box72
+\pgfnodeparttwelvebox=\box73
+\pgfnodepartelevenbox=\box74
+\pgfnodeparttenbox=\box75
+\pgfnodepartninebox=\box76
+\pgfnodeparteightbox=\box77
+\pgfnodepartsevenbox=\box78
+\pgfnodepartsixbox=\box79
+\pgfnodepartfivebox=\box80
+)))
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries
+/tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries
+/tikzlibrarypetri.code.tex
+File: tikzlibrarypetri.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries
+/tikzlibraryshapes.misc.code.tex
+File: tikzlibraryshapes.misc.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+
+(/home/huck/.miktex/texmfs/install/tex/generic/pgf/libraries/shapes/pgflibrarys
+hapes.misc.code.tex
+File: pgflibraryshapes.misc.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+))
+(/home/huck/.miktex/texmfs/install/tex/latex/l3backend/l3backend-pdfmode.def
+File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
+\l__kernel_color_stack_int=\count304
+\l__pdf_internal_box=\box81
+)
+(root.aux)
+\openout1 = `root.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+
+(/home/huck/.miktex/texmfs/install/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count305
+\scratchdimen=\dimen275
+\scratchbox=\box82
+\nofMPsegments=\count306
+\nofMParguments=\count307
+\everyMPshowfont=\toks36
+\MPscratchCnt=\count308
+\MPscratchDim=\dimen276
+\MPnumerator=\count309
+\makeMPintoPDFobject=\count310
+\everyMPtoPDFconversion=\toks37
+) (/home/huck/.miktex/texmfs/install/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+)
+\AtBeginShipoutBox=\box83
+Package hyperref Info: Link coloring ON on input line 80.
+
+(/home/huck/.miktex/texmfs/install/tex/latex/hyperref/nameref.sty
+Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
+
+(/home/huck/.miktex/texmfs/install/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+(/home/huck/.miktex/texmfs/install/tex/generic/gettitlestring/gettitlestring.st
+y
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+)
+\c@section@level=\count311
+)
+LaTeX Info: Redefining \ref on input line 80.
+LaTeX Info: Redefining \pageref on input line 80.
+LaTeX Info: Redefining \nameref on input line 80.
+ (root.out) (root.out)
+\@outlinefile=\write4
+\openout4 = `root.out'.
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: End \AtBeginDocument code.
+ ABD: EveryShipout initializing macros
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 85.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 85.
+
+
+(/home/huck/.miktex/texmfs/install/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 85.
+
+
+(/home/huck/.miktex/texmfs/install/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 85
+.
+
+(/home/huck/.miktex/texmfs/install/tex/latex/jknappen/ursfs.fd
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
+)
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 8
+5.
+
+(/home/huck/.miktex/texmfs/install/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+Underfull \hbox (badness 2980) in paragraph at lines 85--85
+\OT1/ptm/m/n/8 Affairs and Climate Action under the project ``SDM4FZI'' ([][]$\
+OT1/pcr/m/n/8 www .
+ []
+
+
+Underfull \hbox (badness 4819) in paragraph at lines 85--85
+[][][]$[]$\OT1/ptm/m/n/8 Intelligent Process Automation and Robotics Lab, Insti
+tute of
+ []
+
+
+Underfull \hbox (badness 7504) in paragraph at lines 90--92
+[]\OT1/ptm/b/it/9 Abstract\OT1/ptm/b/n/9 ---Lorem ipsum dolor sit amet, consect
+etur
+ []
+
+
+Underfull \hbox (badness 1609) in paragraph at lines 97--100
+\OT1/ptm/m/n/10 in many areas of robotics in the future. Since close
+ []
+
+
+Underfull \hbox (badness 2384) in paragraph at lines 97--100
+\OT1/ptm/m/n/10 and shared workflows, the human becomes a crucial
+ []
+
+
+Underfull \hbox (badness 5607) in paragraph at lines 103--104
+\OT1/ptm/m/n/10 the physical aspects of the interaction (e.g. sensor
+ []
+
+[1{/home/huck/.miktex/texmfs/data/pdftex/config/pdftex.map}
+
+
+]
+Underfull \hbox (badness 2452) in paragraph at lines 136--137
+\OT1/ptm/m/n/10 sequences shall be denoted by $\OMS/cmsy/m/n/10 L\OT1/cmr/m/n/1
+0 (\OML/cmm/m/it/10 A[]\OT1/cmr/m/n/10 )$\OT1/ptm/m/n/10 . For any
+ []
+
+[2]
+Underfull \hbox (badness 1931) in paragraph at lines 161--162
+\OT1/ptm/m/n/10 such as distances or collision forces. In human-robot
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 236.
+
+
+Underfull \hbox (badness 4084) in paragraph at lines 258--259
+\OT1/ptm/m/n/10 which provides automated functionality for this task
+ []
+
+[3]
+Underfull \hbox (badness 3407) in paragraph at lines 271--273
+\OT1/ptm/m/n/10 hazardous situations without needing to inspect each
+ []
+
+
+Underfull \hbox (badness 7012) in paragraph at lines 281--286
+\OT1/ptm/m/n/10 True/False Positives/Negatives; Overapproximate safety
+ []
+
+(root.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 25--29
+[]\OT1/ptm/m/n/8 IEC, ``IEC 61508-1:2010-1 Functional safety of
+ []
+
+
+Underfull \hbox (badness 2556) in paragraph at lines 25--29
+\OT1/ptm/m/n/8 electrical/electronic/programmable electronic safety-related sys
+tems
+ []
+
+
+Underfull \hbox (badness 5787) in paragraph at lines 25--29
+\OT1/ptm/m/n/8 - Part 1: General requirements,'' International Electrotechnical
+
+ []
+
+)
+
+** Conference Paper **
+Before submitting the final camera ready copy, remember to:
+
+ 1. Manually equalize the lengths of two columns on the last page
+ of your paper;
+
+ 2. Ensure that any PostScript and/or PDF output post-processing
+ uses only Type 1 fonts and that every step in the generation
+ process uses the US letter (8.5in X 11in) paper size.
+
+[4pdfTeX warning (ext4): destination with the same identifier (name{table.1}) h
+as been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.464 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier
+ (name{figure.1}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.464 \end{document}
+                    ]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 464.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 464.
+ (root.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 464.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 464.
+Package rerunfilecheck Info: File `root.out' has not changed.
+(rerunfilecheck)             Checksum: 6A49198133400DFE28A0DC1057DB947F;3585.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 464.
+ ) 
+Here is how much of TeX's memory you used:
+ 22577 strings out of 483488
+ 427468 string characters out of 2967263
+ 668521 words of memory out of 3000000
+ 37128 multiletter control sequences out of 15000+600000
+ 575774 words of font info for 119 fonts, out of 8000000 for 9000
+ 0 hyphenation exceptions out of 8191
+ 52i,11n,68p,1020b,977s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/home/huck/.miktex/texmfs/install/fonts/enc/dvips/base/8r.enc}</home/huck/.m
+iktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmex10.pfb></home/huck/.mik
+tex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/huck/.mikte
+x/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi5.pfb></home/huck/.miktex/t
+exmfs/install/fonts/type1/public/amsfonts/cm/cmmi6.pfb></home/huck/.miktex/texm
+fs/install/fonts/type1/public/amsfonts/cm/cmmi7.pfb></home/huck/.miktex/texmfs/
+install/fonts/type1/public/amsfonts/cm/cmmi8.pfb></home/huck/.miktex/texmfs/ins
+tall/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/huck/.miktex/texmfs/instal
+l/fonts/type1/public/amsfonts/cm/cmr5.pfb></home/huck/.miktex/texmfs/install/fo
+nts/type1/public/amsfonts/cm/cmr6.pfb></home/huck/.miktex/texmfs/install/fonts/
+type1/public/amsfonts/cm/cmr7.pfb></home/huck/.miktex/texmfs/install/fonts/type
+1/public/amsfonts/cm/cmr8.pfb></home/huck/.miktex/texmfs/install/fonts/type1/pu
+blic/amsfonts/cm/cmsy10.pfb></home/huck/.miktex/texmfs/install/fonts/type1/publ
+ic/amsfonts/cm/cmsy7.pfb></home/huck/.miktex/texmfs/install/fonts/type1/public/
+amsfonts/cm/cmsy8.pfb></home/huck/.miktex/texmfs/install/fonts/type1/urw/courie
+r/ucrr8a.pfb></home/huck/.miktex/texmfs/install/fonts/type1/urw/times/utmb8a.pf
+b></home/huck/.miktex/texmfs/install/fonts/type1/urw/times/utmbi8a.pfb></home/h
+uck/.miktex/texmfs/install/fonts/type1/urw/times/utmr8a.pfb></home/huck/.miktex
+/texmfs/install/fonts/type1/urw/times/utmri8a.pfb>
+Output written on root.pdf (4 pages, 225434 bytes).
+PDF statistics:
+ 215 PDF objects out of 1000 (max. 8388607)
+ 35 named destinations out of 1000 (max. 500000)
+ 189 words of extra memory for PDF output out of 10000 (max. 10000000)
+

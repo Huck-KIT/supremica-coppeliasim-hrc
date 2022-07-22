@@ -4,11 +4,11 @@ import csv
 from xml.dom.minidom import parse, Node
 
 #settings
-max_sequence_length = 10
+max_sequence_length = 11
 save_results = True
-terminate_on_event = True
-filepath_source = "models/supremica/XML/supervisor_scenario_B.xml"
-filepath_dest = "models/supremica/CSV/action_sequences_supervisor_scenario_B.csv"
+terminate_on_event = False
+filepath_source = "models/supremica/XML/human_model_scenario_B.xml"
+filepath_dest = "models/supremica/CSV/action_sequences_human_model_scenario_B.csv"
 
 # initializations
 language_subset = list()
@@ -70,18 +70,15 @@ def calculate_language_subset(input_state_id,input_sequence):
     # Sequence is not accepted --> return without adding the sequence to the set
     success, next_state_id = check_automaton_acceptance(input_state_id,input_sequence)
     if not success:
-        print("A")
         # print("Sequence is not accepted")
         return None
     # Sequence is accepted, but reaches terminal length without including a collision --> return without adding the sequence to the set
     elif terminate_on_event and len(input_sequence) >= max_sequence_length and not (terminal_event in input_sequence):
-        print("B")
         # print_sequence(input_sequence)
         # print("Sequence is accepted but reaches terminal length without including a collision")
         return None
     # Sequence is accepted and includes terminal event --> add sequence to set
     elif terminate_on_event and (terminal_event in input_sequence):
-        print("C")
         # print_sequence(input_sequence)
         # print("Sequence is accepted and includes terminal event --> add sequence to set")
         input_sequence_labels = list()
@@ -90,7 +87,6 @@ def calculate_language_subset(input_state_id,input_sequence):
         language_subset.append(input_sequence_labels)
         return None
     elif not terminate_on_event and len(input_sequence) == max_sequence_length:
-        print("D")
         # print_sequence(input_sequence)
         # print("Sequence is accepted and includes terminal event --> add sequence to set")
         input_sequence_labels = list()
