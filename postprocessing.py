@@ -15,8 +15,9 @@ above the specified threshold.
 """
 import csv
 import os
+from Environment import Environment
 
-results_filepath = os.getcwd()+"/results/results_random_scenario_B.csv"
+results_filepath = os.getcwd()+"/results/Archive/results_mcts_scenario_B_10.csv"
 #esults_filepath = os.getcwd()+"/results/Archive/results_random_scenario_B_04.csv"
 
 action_sequences = list()
@@ -29,8 +30,9 @@ parameters_above_threshold = list()
 
 risk_threshold = 1
 
+check_against_supervisor = True
+
 if os.path.exists(results_filepath):
-    print("exist")
     #riskValues = np.loadtxt(filepath+"/risks.csv", delimiter=',')
     # reader_oi = pd.read_csv(filepath+"/actionSequences.csv", delimiter=',', names=list(range(10)))
     with open(results_filepath) as csvfile:
@@ -42,7 +44,6 @@ if os.path.exists(results_filepath):
                 line_count += 1
             else:
                 risk = float(row[2])
-                print(risk)
                 action_sequences.append(row[0])
                 parameters.append([row[1]])
                 risks.append(risk)
@@ -52,10 +53,32 @@ if os.path.exists(results_filepath):
                     parameters_above_threshold.append(row[1])
                     line_count += 1
 
-    print("number of sequences: "+str(len(action_sequences)))
+    # print("number of sequences: "+str(len(action_sequences)))
+    #
+    #
+    # print("number of sequences above risk threshold: "+str(len(action_sequences_above_threshold)))
+    # for i in range(len(action_sequences_above_threshold)):
+    #     print(action_sequences_above_threshold[i] + "; risk: " + str(risks_above_threshold[i])+ "; parameters: " +parameters_above_threshold[i])
 
-
-    print("number of sequences above risk threshold: "+str(len(action_sequences_above_threshold)))
-    for i in range(len(action_sequences_above_threshold)):
-        print(action_sequences_above_threshold[i] + "; risk: " + str(risks_above_threshold[i])+ "; parameters: " +parameters_above_threshold[i])
-# print(actionSequences)
+    if check_against_supervisor:
+        sim_params_min = [0.7, -0.1, -0.1]
+        sim_params_max = [1.3, 0, 0.1]
+        sim_params_nominal = [1, 0, 0]
+        workflow_xml_path = "models/supremica/XML/supervisor_scenario_B.xml"
+        env = Environment(None,sim_params_min,sim_params_max,sim_params_nominal,workflow_xml_path,False)
+        action_sequences_non_supervised = list()
+        for sequence_string in action_sequences_above_threshold:
+            sequence_string = sequence_string.replace(",","")
+            sequence_string = sequence_string.replace("'","")
+            sequence_string = sequence_string.replace("[","")
+            sequence_string = sequence_string.replace("]","")
+            sequence_list = sequence_string.split()
+            sequence_list.remove("initial")
+            print(sequence_list)
+            if not env.workflow_check_acceptance(sequence_list):
+                action_sequences_non_supervised.append(sequence_list)
+        print("Action sequences NOT accepted by supervisor:")
+        if action_sequences_non_supervised:
+            print(action_sequences_non_supervised)
+        else:
+            print("NONE.")
