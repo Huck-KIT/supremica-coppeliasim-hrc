@@ -4,7 +4,7 @@ import csv
 from xml.dom.minidom import parse, Node
 
 #settings
-max_sequence_length = 13
+max_sequence_length = 12
 save_results = True
 terminate_on_event = True
 filepath_source = "models/supremica/XML/supervisor_scenario_B.xml"

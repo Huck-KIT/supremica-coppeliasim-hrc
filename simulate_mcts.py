@@ -54,6 +54,7 @@ class MCTSNode():
         self.use_random_parameters = use_random_parameters
         self.writer_obj = writer_obj
         self._untried_actions = None
+        self._terminate_on_collision = True
         self._untried_actions = self.untried_actions()
         return
 
@@ -99,7 +100,7 @@ class MCTSNode():
         return child_node
 
     def is_terminal_node(self):
-        return len(self.state) >= max_episode_length
+        return (len(self.state) >= max_episode_length) or (self._terminate_on_collision and (self.env.get_max_risk() > 1))
 
     def backpropagate(self, result):
         self._number_of_visits += 1

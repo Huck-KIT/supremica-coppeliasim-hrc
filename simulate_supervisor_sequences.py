@@ -20,9 +20,12 @@ from xml.dom.minidom import parse, Node
 
 ########################## Simulation Settings #################################
 scenario = 2 # Currently available: {1,2}
-repetitions_per_sequence = 15
+repetitions_per_sequence = 22
+max_sequence_length = 11 #sequence length expressed as number of actions
 use_random_parameters = True
 log_results = True
+trigger_actions_manually = False
+random.seed(1)
 ####################### Load scenario parameters ###############################
 
 if scenario == 1:
@@ -57,18 +60,37 @@ with open(action_sequence_filepath, newline='') as csvfile:
         action_sequences.append(row)
     print(str(len(action_sequences))+" sequences loaded.")
 
+    print("remove sequences which are above maximum length...:")
+    sequences_length_limited = list()
+    for sequence in action_sequences:
+        print(sequence)
+        print("len: "+str(len(sequence)))
+        if len(sequence) > max_sequence_length+1:
+            print("remove!")
+            # action_sequences.remove(sequence)
+        else:
+            print("keep!")
+            sequence.remove('collision')
+            sequences_length_limited.append(sequence)
+
+    print(str(len(sequences_length_limited))+" remaining:")
+    for sequence in sequences_length_limited:
+        print(sequence)
+        print("len: "+str(len(sequence)))
+
+
 # simulate action sequences
 with b0RemoteApi.RemoteApiClient('b0RemoteApi_V-REP-addOn','b0RemoteApiAddOn') as client:  #This line defines the client, which provides all functions of the remote API
-    env = Environment.Environment(client,motionParametersMin,motionParametersMax,motionParametersNominal,automaton_filepath,True)
+    env = Environment.Environment(client,motionParametersMin,motionParametersMax,motionParametersNominal,automaton_filepath,trigger_actions_manually)
     env.print_action_space()
     env.sim_start()
     sequence_counter = 0
-    for current_action_sequence in action_sequences:
+    for current_action_sequence in sequences_length_limited:
         assert env.workflow_check_acceptance(current_action_sequence), "Sequence not accepted by supervisor automaton!"
         sequence_counter+=1
         for repetition_counter in range(repetitions_per_sequence):
             current_max_risk = 0
-            print("simulate sequence "+str(sequence_counter)+" of "+str(len(action_sequences)))
+            print("simulate sequence "+str(sequence_counter)+" of "+str(len(sequences_length_limited)))
             print("repetition "+str(repetition_counter+1)+ " of "+str(repetitions_per_sequence))
             print(current_action_sequence)
             # sample motion parameters for this sequence
@@ -81,19 +103,16 @@ with b0RemoteApi.RemoteApiClient('b0RemoteApi_V-REP-addOn','b0RemoteApiAddOn') a
             else:
                 current_parameters = env.sim_params_nominal # use default parameters
             for current_action in current_action_sequence:
-                if current_action == "collision":
-                        print("sequence done!")
-                        sequence_log.append(current_action_sequence)
-                        parameter_log.append(current_parameters)
-                        risk_log.append(current_max_risk)
-                        print("Risk logged: "+str(current_max_risk))
-                        if not sequence_counter == len(action_sequences):
-                            env.sim_reset()
-                        break
-                else:
-                    risk = env.sim_step(current_action,current_parameters)
-                    if risk > current_max_risk:
-                        current_max_risk = risk
+                risk = env.sim_step(current_action,current_parameters)
+                if risk > current_max_risk:
+                    current_max_risk = risk
+            print("sequence done!")
+            sequence_log.append(current_action_sequence)
+            parameter_log.append(current_parameters)
+            risk_log.append(current_max_risk)
+            print("Risk logged: "+str(current_max_risk))
+            env.sim_reset()
+
     env.sim_stop()
 
     # log results
