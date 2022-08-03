@@ -41,7 +41,7 @@ def print_list(input_list):
 
 class MCTSNode():
 
-    def __init__(self, state, state_internal, env, max_episode_length, writer_obj, parent=None, parent_action=None, use_random_parameters = True):
+    def __init__(self, state, state_internal, env, max_episode_length, writer_obj, parent=None, parent_action=None, use_random_parameters = True, verbose = False):
         self.env = env # simulation environment
         self.state = state
         self._state_internal = state_internal#this is not the mcts state, only an internal stat variable which is used to determine the currently feasible actions!
@@ -55,6 +55,7 @@ class MCTSNode():
         self.writer_obj = writer_obj
         self._untried_actions = None
         self._terminate_on_collision = True
+        self._verbose = verbose
         self._untried_actions = self.untried_actions()
         return
 
@@ -74,9 +75,9 @@ class MCTSNode():
     def expand(self):
         # Select action and update list of untried actions.
         action = self._untried_actions.pop() # todo: use random action instead of popping first action, but don't forget to remove that action from untried_actio
-        print("expand with action " + action.getAttribute("label"))
-        # print("action selected:"+action.getAttribute("label"))
-        print("run aciton with parameters:" + str(self.env.parameters_current))
+        if self._verbose:
+            print("expand with action " + action.getAttribute("label"))
+            print("run aciton with parameters:" + str(self.env.parameters_current))
         self.env.sim_step(action.getAttribute("label"),self.env.parameters_current)
 
         """Todo: adapt this function. Instead of taking first untried action
@@ -100,6 +101,8 @@ class MCTSNode():
         return child_node
 
     def is_terminal_node(self):
+        print("current max risk: "+str(self.env.get_max_risk()))
+        print("is terminal: "+str((len(self.state) >= max_episode_length) or (self._terminate_on_collision and (self.env.get_max_risk() > 1))))
         return (len(self.state) >= max_episode_length) or (self._terminate_on_collision and (self.env.get_max_risk() > 1))
 
     def backpropagate(self, result):
@@ -115,12 +118,13 @@ class MCTSNode():
         rollout_reward = 0
         rollout_actions = list()
 
-        while rollout_episode_counter < self.max_episode_length: # TODO: incorporate max risk threshold as termination criterion!
-            # print("rollout from state: "+current_rollout_state.getAttribute("name"))
+        while ((rollout_episode_counter < self.max_episode_length) and (self.env.get_max_risk() < 1)): # TODO: incorporate max risk threshold as termination criterion!
+            print("rollout reward: "+str(rollout_reward))
             possible_moves = self.env.workflow_get_feasible_actions(current_rollout_state.getAttribute("id"))
             action = self.rollout_policy(possible_moves)
             rollout_actions.append(action.getAttribute("label"))
-            print("Rollout - choose action: "+action.getAttribute("label"))
+            if self._verbose:
+                print("Rollout - choose action: "+action.getAttribute("label"))
             r = self.env.sim_step(action.getAttribute("label"),self.env.parameters_current)
             next_rollout_state_index = int(self.env.workflow_transition(current_rollout_state.getAttribute("id"),action))
             current_rollout_state = self.env.states[next_rollout_state_index]
@@ -128,7 +132,8 @@ class MCTSNode():
             if r > rollout_reward:
                 rollout_reward =  r
 
-        print("reward incurred in this rollout phase: " + str(rollout_reward))
+        if self._verbose:
+            print("reward incurred in this rollout phase: " + str(rollout_reward))
         self.write_to_csv(self.state + rollout_actions, self.env.parameters_current, self.env.get_max_risk())
         return rollout_reward
 
@@ -151,7 +156,8 @@ class MCTSNode():
             else:
                 current_node = current_node.best_child()
                 action = self.env.workflow_get_event_by_label(current_node.state[-1])
-                print("traverse to node: " + str(current_node.state) + "with action " + action.getAttribute("label"))
+                if self._verbose:
+                    print("traverse to node: " + str(current_node.state) + "with action " + action.getAttribute("label"))
                 self.env.sim_step(action.getAttribute("label"),self.env.parameters_current)
 
         return current_node
@@ -160,13 +166,15 @@ class MCTSNode():
         simulation_no = 500
 
         for i in range(simulation_no):
-            print_divider()
+            if self._verbose:
+                print_divider()
             v = self._tree_policy()
             reward = v.rollout()
             v.backpropagate(reward)
             self.env.sim_reset()
             self.env.sim_randomize_parameters()
-            print("RESET")
+            if self._verbose:
+                print("RESET")
 
         return self.best_child(c_param=0)
 
@@ -175,7 +183,7 @@ class MCTSNode():
 
 max_episode_length = 12
 scenario = 2
-random.seed(10)
+random.seed(5)
 
 if scenario == 1:
     sim_params_min = [-0.2, 0.8, 1]

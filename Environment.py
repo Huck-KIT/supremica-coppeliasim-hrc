@@ -1,3 +1,4 @@
+
 """
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Environment.py
@@ -27,7 +28,7 @@ import random
 from xml.dom.minidom import parse, Node
 
 class Environment:
-    def __init__(self,sim_client,sim_params_min,sim_params_max,sim_params_nominal,workflow_xml_path,manual_trigger):
+    def __init__(self,sim_client,sim_params_min,sim_params_max,sim_params_nominal,workflow_xml_path,manual_trigger,verbose = False):
         # assign constructor inputs
         self.client = sim_client
         self.sim_params_max = sim_params_max
@@ -37,6 +38,7 @@ class Environment:
         self.current_max_risk = 0 # tracks risk value of ongoing simulation
         self.manual_trigger = manual_trigger
         self.parameters_current = sim_params_nominal
+        self._verbose = verbose
 
         with open(workflow_xml_path) as file:
             document = parse(file)
@@ -112,7 +114,8 @@ class Environment:
         self.parameters_current = current_parameters
 
     def sim_reset(self):
-        print("--------- reset simulation ---------")
+        if self._verbose:
+            print("--------- reset simulation ---------")
         self.client.simxCallScriptFunction("reset@Bill","sim.scripttype_childscript",1,self.client.simxServiceCall())
         self.step_counter = 0
         self.current_max_risk = 0
@@ -141,7 +144,8 @@ class Environment:
 
         isReset = self.client.simxCallScriptFunction("resetMaxRisk@RiskMetricCalculator","sim.scripttype_childscript",1,self.client.simxServiceCall())
         assert isReset, "error - could not reset risk metric after action"
-        print("risk incurred in this action: "+str(current_max_risk_action))
+        if self._verbose:
+            print("risk incurred in this action: "+str(current_max_risk_action))
         if current_max_risk_action > self.current_max_risk:
             self.current_max_risk = current_max_risk_action # update overall max risk
         return current_max_risk_action

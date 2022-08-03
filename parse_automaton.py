@@ -48,18 +48,6 @@ def check_automaton_acceptance(input_state_id,input_sequence):
         else:
             return True, next_state_id
 
-    ############### old version ######################
-
-    # print("cehck sequence: ")
-    # print_sequence(input_sequence)
-    # current_state_id = initial_state.getAttribute("id")
-    # # print("\n-------check new sequence--------")
-    # for event in input_sequence:
-    #     current_state_id = transition(current_state_id,event)
-    #     if current_state_id == None:
-    #         return False, None
-    # return True, None
-
 def sequence_is_terminal(input_sequence):
     if input_sequence == None:
         return False

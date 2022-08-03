@@ -12,7 +12,7 @@ trigger_actions_manually = False
 n_simulation_runs = 500
 log_results = True
 
-random.seed(6)
+random.seed(4)
 
 ####################### Load scenario parameters ###############################
 if scenario == 1:
@@ -68,15 +68,20 @@ with b0RemoteApi.RemoteApiClient('b0RemoteApi_V-REP-addOn','b0RemoteApiAddOn') a
         print(current_parameters)
         # simulate the sequence
         current_max_risk = 0
+        logged_sequence = list()
         for current_action in random_sequence:
             print("next action: "+current_action)
+            logged_sequence.append(current_action)
             risk = env.sim_step(current_action,current_parameters)
             if risk > current_max_risk:
                 current_max_risk = risk
+            if current_max_risk > 1:
+                break
+
         # log the results and reset the simulator
-        sequence_log.append(random_sequence)
+        sequence_log.append(logged_sequence)
         parameter_log.append(current_parameters)
-        risk_log.append(current_max_risk)
+        risk_log.append(env.get_max_risk())# was: risk_log.append(current_max_risk)
         print("Risk logged: "+str(current_max_risk))
         env.sim_reset()
     env.sim_stop()
