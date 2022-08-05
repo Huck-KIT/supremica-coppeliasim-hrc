@@ -12,7 +12,7 @@ trigger_actions_manually = False
 n_simulation_runs = 500
 log_results = True
 
-random.seed(4)
+random.seed(10)
 
 ####################### Load scenario parameters ###############################
 if scenario == 1:

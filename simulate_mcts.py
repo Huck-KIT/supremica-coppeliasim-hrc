@@ -183,7 +183,7 @@ class MCTSNode():
 
 max_episode_length = 12
 scenario = 2
-random.seed(5)
+random.seed(10)
 
 if scenario == 1:
     sim_params_min = [-0.2, 0.8, 1]

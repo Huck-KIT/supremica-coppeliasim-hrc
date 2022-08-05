@@ -43,8 +43,9 @@ def check_supervisor_inclusion(input_action_sequences,supervisor_sequences_filep
     for input_sequence in input_action_sequences:
         # convert list into string for comparison
         input_sequence_as_list = input_sequence.split()
-        print("as list:")
-        if input_sequence_as_list[0] == 'initial':
+        # print("as list:")
+        # print(input_sequence_as_list[0])
+        if input_sequence_as_list[0] == "['initial',":
             del input_sequence_as_list[0] #remove 'initial' tag
         input_sequence_as_string = str(input_sequence_as_list)
         input_sequence_as_string = remove_separators_from_string(input_sequence_as_string)
@@ -69,7 +70,7 @@ def check_supervisor_inclusion(input_action_sequences,supervisor_sequences_filep
 
 
 
-results_filepath = os.getcwd()+"/results/results_random_scenario_B.csv"
+results_filepath = os.getcwd()+"/results/results_supervisor_scenario_B.csv"
 supervisor_sequences_filepath = os.getcwd()+"/models/supremica/CSV/action_sequences_supervisor_scenario_B.csv"
 #esults_filepath = os.getcwd()+"/results/Archive/results_random_scenario_B_04.csv"
 
