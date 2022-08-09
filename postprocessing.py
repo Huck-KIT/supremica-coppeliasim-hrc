@@ -64,14 +64,15 @@ def check_supervisor_inclusion(input_action_sequences,supervisor_sequences_filep
             sequences_not_in_supervisor.append(input_sequence_as_string)
     if sequences_not_in_supervisor:
         print(str(len(sequences_not_in_supervisor))+" sequences not covered by supervisor:")
-        print(sequences_not_in_supervisor)
+        for seq in sequences_not_in_supervisor:
+            print(seq)
     else:
         print("all sequences covered in supervisor")
 
 
 
-results_filepath = os.getcwd()+"/results/results_supervisor_scenario_B.csv"
-supervisor_sequences_filepath = os.getcwd()+"/models/supremica/CSV/action_sequences_supervisor_scenario_B.csv"
+results_filepath = os.getcwd()+"/results/Archive/results_random_scenario_A_01.csv"
+supervisor_sequences_filepath = os.getcwd()+"/models/supremica/CSV/action_sequences_supervisor_scenario_A.csv"
 #esults_filepath = os.getcwd()+"/results/Archive/results_random_scenario_B_04.csv"
 
 action_sequences = list()

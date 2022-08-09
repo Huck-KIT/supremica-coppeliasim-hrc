@@ -183,11 +183,23 @@
 </SplineGeometry>
 <GuardActionBlock>
 <Guards>
+<BinaryExpression Operator="&amp;" Text="parts_taken==1 &amp; cover_mounted==0">
 <BinaryExpression Operator="==">
 <SimpleIdentifier Name="parts_taken"/>
 <IntConstant Value="1"/>
 </BinaryExpression>
+<BinaryExpression Operator="==">
+<SimpleIdentifier Name="cover_mounted"/>
+<IntConstant Value="0"/>
+</BinaryExpression>
+</BinaryExpression>
 </Guards>
+<Actions>
+<BinaryExpression Operator="=">
+<SimpleIdentifier Name="collab_workspace_occupied_human"/>
+<IntConstant Value="1"/>
+</BinaryExpression>
+</Actions>
 <LabelGeometry Anchor="NW">
 <Point X="11" Y="31"/>
 </LabelGeometry>
@@ -227,9 +239,15 @@
 </SplineGeometry>
 <GuardActionBlock>
 <Guards>
+<BinaryExpression Operator="&amp;" Text="parts_taken==1 &amp; cover_mounted==0">
 <BinaryExpression Operator="==">
 <SimpleIdentifier Name="parts_taken"/>
 <IntConstant Value="1"/>
+</BinaryExpression>
+<BinaryExpression Operator="==">
+<SimpleIdentifier Name="cover_mounted"/>
+<IntConstant Value="0"/>
+</BinaryExpression>
 </BinaryExpression>
 </Guards>
 <Actions>
@@ -591,14 +609,56 @@
 <LabelBlock>
 <SimpleIdentifier Name="human_mount_cover"/>
 <LabelGeometry Anchor="NW">
-<Point X="-63" Y="-34"/>
+<Point X="-46" Y="-72"/>
 </LabelGeometry>
 </LabelBlock>
+<GuardActionBlock>
+<Guards>
+<BinaryExpression Operator="==">
+<SimpleIdentifier Name="cover_mounted"/>
+<IntConstant Value="0"/>
+</BinaryExpression>
+</Guards>
+<Actions>
+<BinaryExpression Operator="=">
+<SimpleIdentifier Name="collab_workspace_occupied_human"/>
+<IntConstant Value="1"/>
+</BinaryExpression>
+<BinaryExpression Operator="=">
+<SimpleIdentifier Name="cover_mounted"/>
+<IntConstant Value="1"/>
+</BinaryExpression>
+</Actions>
+<LabelGeometry Anchor="NW">
+<Point X="-47" Y="-59"/>
+</LabelGeometry>
+</GuardActionBlock>
 </Edge>
 <Edge Source="S1" Target="S2">
 <LabelBlock>
 <SimpleIdentifier Name="human_mount_cover"/>
 </LabelBlock>
+<GuardActionBlock>
+<Guards>
+<BinaryExpression Operator="==">
+<SimpleIdentifier Name="cover_mounted"/>
+<IntConstant Value="0"/>
+</BinaryExpression>
+</Guards>
+<Actions>
+<BinaryExpression Operator="=">
+<SimpleIdentifier Name="collab_workspace_occupied_human"/>
+<IntConstant Value="1"/>
+</BinaryExpression>
+<BinaryExpression Operator="=">
+<SimpleIdentifier Name="cover_mounted"/>
+<IntConstant Value="1"/>
+</BinaryExpression>
+</Actions>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="30"/>
+</LabelGeometry>
+</GuardActionBlock>
 </Edge>
 <Edge Source="S0" Target="S1">
 <LabelBlock>
@@ -607,29 +667,107 @@
 <Point X="-159" Y="-10"/>
 </LabelGeometry>
 </LabelBlock>
+<GuardActionBlock>
+<Guards>
+<BinaryExpression Operator="==">
+<SimpleIdentifier Name="gearwheel_inserted"/>
+<IntConstant Value="0"/>
+</BinaryExpression>
+</Guards>
+<Actions>
+<BinaryExpression Operator="=">
+<SimpleIdentifier Name="gearwheel_inserted"/>
+<IntConstant Value="1"/>
+</BinaryExpression>
+</Actions>
+<LabelGeometry Anchor="NW">
+<Point X="-160" Y="13"/>
+</LabelGeometry>
+</GuardActionBlock>
 </Edge>
 <Edge Source="S0" Target="S0">
 <LabelBlock>
 <SimpleIdentifier Name="human_reach_in_housing"/>
-<SimpleIdentifier Name="human_reach_in_cover"/>
 <LabelGeometry Anchor="NW">
-<Point X="-173" Y="-24"/>
+<Point X="-228" Y="-20"/>
 </LabelGeometry>
 </LabelBlock>
 <SplineGeometry>
 <Point X="96" Y="188"/>
 </SplineGeometry>
+<GuardActionBlock>
+<Guards>
+<BinaryExpression Operator="==">
+<SimpleIdentifier Name="parts_taken"/>
+<IntConstant Value="1"/>
+</BinaryExpression>
+</Guards>
+<Actions>
+<BinaryExpression Operator="=">
+<SimpleIdentifier Name="collab_workspace_occupied_human"/>
+<IntConstant Value="1"/>
+</BinaryExpression>
+</Actions>
+<LabelGeometry Anchor="NW">
+<Point X="-228" Y="-2"/>
+</LabelGeometry>
+</GuardActionBlock>
 </Edge>
 <Edge Source="S1" Target="S1">
 <LabelBlock>
 <SimpleIdentifier Name="human_reach_in_cover"/>
 <LabelGeometry Anchor="NW">
-<Point X="-154" Y="-22"/>
+<Point X="-172" Y="-10"/>
 </LabelGeometry>
 </LabelBlock>
 <SplineGeometry>
 <Point X="100" Y="466"/>
 </SplineGeometry>
+<GuardActionBlock>
+<Guards>
+<BinaryExpression Operator="==">
+<SimpleIdentifier Name="parts_taken"/>
+<IntConstant Value="1"/>
+</BinaryExpression>
+</Guards>
+<Actions>
+<BinaryExpression Operator="=">
+<SimpleIdentifier Name="collab_workspace_occupied_human"/>
+<IntConstant Value="1"/>
+</BinaryExpression>
+</Actions>
+<LabelGeometry Anchor="NW">
+<Point X="-171" Y="10"/>
+</LabelGeometry>
+</GuardActionBlock>
+</Edge>
+<Edge Source="S0" Target="S0">
+<LabelBlock>
+<SimpleIdentifier Name="human_reach_in_cover"/>
+<LabelGeometry Anchor="NW">
+<Point X="-103" Y="-78"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="191" Y="105"/>
+</SplineGeometry>
+<GuardActionBlock>
+<Guards>
+<BinaryExpression Operator="==">
+<SimpleIdentifier Name="parts_taken"/>
+<IntConstant Value="1"/>
+</BinaryExpression>
+</Guards>
+<Actions>
+<BinaryExpression Operator="=">
+<SimpleIdentifier Name="collab_workspace_occupied_human"/>
+<IntConstant Value="1"/>
+</BinaryExpression>
+</Actions>
+<LabelGeometry Anchor="NW">
+<Point X="-100" Y="-60"/>
+</LabelGeometry>
+</GuardActionBlock>
 </Edge>
 </EdgeList>
 </Graph>

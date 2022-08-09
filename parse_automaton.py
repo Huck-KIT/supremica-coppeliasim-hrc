@@ -4,11 +4,11 @@ import csv
 from xml.dom.minidom import parse, Node
 
 #settings
-max_sequence_length = 12
+max_sequence_length = 9
 save_results = True
-terminate_on_event = True
-filepath_source = "models/supremica/XML/supervisor_scenario_B.xml"
-filepath_dest = "models/supremica/CSV/action_sequences_supervisor_scenario_B.csv"
+terminate_on_event = False
+filepath_source = "models/supremica/XML/human_model_scenario_A.xml"
+filepath_dest = "models/supremica/CSV/action_sequences_human_model_scenario_A.csv"
 
 # initializations
 language_subset = list()

@@ -6,13 +6,13 @@ import Environment
 from xml.dom.minidom import parse, Node
 
 ########################## Simulation Settings #################################
-scenario = 2 # Currently available: {1,2}
+scenario = 1 # Currently available: {1,2}
 use_random_parameters = True
 trigger_actions_manually = False
 n_simulation_runs = 500
 log_results = True
 
-random.seed(10)
+random.seed(4)
 
 ####################### Load scenario parameters ###############################
 if scenario == 1:
