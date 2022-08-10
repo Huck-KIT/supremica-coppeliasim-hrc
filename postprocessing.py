@@ -71,7 +71,7 @@ def check_supervisor_inclusion(input_action_sequences,supervisor_sequences_filep
 
 
 
-results_filepath = os.getcwd()+"/results/Archive/results_random_scenario_A_01.csv"
+results_filepath = os.getcwd()+"/results/results_random_scenario_A.csv"
 supervisor_sequences_filepath = os.getcwd()+"/models/supremica/CSV/action_sequences_supervisor_scenario_A.csv"
 #esults_filepath = os.getcwd()+"/results/Archive/results_random_scenario_B_04.csv"
 
