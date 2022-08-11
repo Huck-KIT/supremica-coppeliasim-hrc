@@ -19,16 +19,16 @@ import Environment
 from xml.dom.minidom import parse, Node
 
 ########################## Simulation Settings #################################
-scenario = 2 # Currently available: {1,2}
-repetitions_per_sequence = 22
+scenario =  1# Currently available: {1,2}
 max_sequence_length = 11 #sequence length expressed as number of actions
 use_random_parameters = True
 log_results = True
 trigger_actions_manually = False
-random.seed(10)
+random.seed(3)
 ####################### Load scenario parameters ###############################
 
 if scenario == 1:
+    repetitions_per_sequence = 6
     motionParametersMin = [-0.2,0.8, 1]
     motionParametersMax = [0.2, 1.2, 1.5]
     motionParametersNominal = [0,1,1]
@@ -36,6 +36,7 @@ if scenario == 1:
     action_sequence_filepath="models/supremica/CSV/action_sequences_supervisor_scenario_A.csv"
     results_filepath = "results/results_supervisor_scenario_A.csv"
 elif scenario == 2:
+    repetitions_per_sequence = 22
     motionParametersMin = [0.7, -0.1, -0.1]
     motionParametersMax = [1.3, 0, 0.1]
     motionParametersNominal = [1,0,0]
