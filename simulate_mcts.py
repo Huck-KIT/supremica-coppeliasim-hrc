@@ -181,17 +181,18 @@ class MCTSNode():
 
 """--------------------------------- Main -----------------------------------"""
 
-max_episode_length = 12
-scenario = 2
-random.seed(10)
+scenario = 1
+random.seed(7)
 
 if scenario == 1:
+    max_episode_length = 10
     sim_params_min = [-0.2, 0.8, 1]
     sim_params_max = [0.2, 1.2, 1.5]
     sim_params_nominal = [0,1,1]
     workflow_xml_path = "models/supremica/XML/human_model_scenario_A.xml" # automaton xml file (created from supremica)
     results_filepath = "results/results_mcts_scenario_A.csv" # log file
 elif scenario == 2:
+    max_episode_length = 12
     sim_params_min = [0.7, -0.1, -0.1]
     sim_params_max = [1.3, 0, 0.1]
     sim_params_nominal = [1, 0, 0]
