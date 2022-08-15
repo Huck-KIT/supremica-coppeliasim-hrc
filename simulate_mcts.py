@@ -182,7 +182,7 @@ class MCTSNode():
 """--------------------------------- Main -----------------------------------"""
 
 scenario = 1
-random.seed(7)
+random.seed(1)
 
 if scenario == 1:
     max_episode_length = 10

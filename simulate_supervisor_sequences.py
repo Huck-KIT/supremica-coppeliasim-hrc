@@ -24,7 +24,7 @@ max_sequence_length = 11 #sequence length expressed as number of actions
 use_random_parameters = True
 log_results = True
 trigger_actions_manually = False
-random.seed(3)
+random.seed(7)
 ####################### Load scenario parameters ###############################
 
 if scenario == 1:
