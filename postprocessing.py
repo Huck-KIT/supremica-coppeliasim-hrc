@@ -27,67 +27,99 @@ def remove_separators_from_string(input_string):
         input_string = input_string.replace("]","")
         return input_string
 
-def check_supervisor_inclusion(simulation_action_sequences,supervisor_sequences_filepath):
-    """ this function compares if the action sequences given by the list
-    action_sequences are included in the action sequences obtained from the
-    supervisor (given by the file at supervisor_file_path)"""
-
-    #read in action sequences
+def get_supervisor_sequences(supervisor_sequences_filepath):
     action_sequences_supervisor = list()
     with open(supervisor_sequences_filepath) as supervisor_csvfile:
         reader_obj = csv.reader(supervisor_csvfile, delimiter=',')
         for row in reader_obj:
-            sequence_as_list = list()
-            action_sequences_supervisor.append(row)
+            sequence = row[0]
+            sequence = sequence.replace(" collision","")
+            action_sequences_supervisor.append(sequence)
+    return action_sequences_supervisor
 
-    # compare
-    sequences_not_in_supervisor = list() # action sequences in simulation, but not in supervisor
-    for input_sequence in simulation_action_sequences:
-        # convert list into string for comparison
-        input_sequence_as_list = input_sequence.split()
-        # print("as list:")
-        # print(input_sequence_as_list[0])
-        if input_sequence_as_list[0] == "['initial',":
-            del input_sequence_as_list[0] #remove 'initial' tag
-        input_sequence_as_string = str(input_sequence_as_list)
-        input_sequence_as_string = remove_separators_from_string(input_sequence_as_string)
-        # print("compare with:")
-        # print(action_sequences_supervisor)
-        #compare with supervisor sequences
-        supervisor_sequences_as_string = list()
-        for supervisor_sequence in action_sequences_supervisor:
-            supervisor_sequence_as_string = supervisor_sequence[0]#.remove('collision') # remove "collision" tag
-            supervisor_sequence_as_list = supervisor_sequence_as_string.split()
-            supervisor_sequence_as_list.remove("collision")
-            supervisor_sequence_as_string = str(supervisor_sequence_as_list)
-            supervisor_sequence_as_string = remove_separators_from_string(supervisor_sequence_as_string)
-            supervisor_sequences_as_string.append(supervisor_sequence_as_string)
-        if not (input_sequence_as_string in supervisor_sequences_as_string):
-            sequences_not_in_supervisor.append(input_sequence_as_string)
+def convert_to_string(list_of_lists):
+# converts list of lists to list of strings
+    list_of_strings = list()
+    for element in list_of_lists:
+        if element[0] == 'initial':
+            del element[0]
+        list_as_string = str(element)
+        list_as_string = remove_separators_from_string(list_as_string)
+        list_of_strings.append(list_as_string)
+    return list_of_strings
 
-    sequences_not_in_simulation = list() # action sequences in supervisor, but not in simulation
-    for supervisor_sequence in action_sequences_supervisor:
-        # print("compare: ")
-        comp_string1 = supervisor_sequence[0].replace(" collision","")
-        comp_string_list = list()
-        for seq in simulation_action_sequences:
-            comp_string2 = remove_separators_from_string(seq)
-            if "initial " in comp_string2:
-                comp_string2.replace("initial ","")
-            comp_string_list.append(comp_string2)
-        # print(comp_string1)
-        # print(comp_string_list)
-        if comp_string1 in comp_string_list:
-            print("included!")
-        else:
-            print("not included")
-            sequences_not_in_simulation.append(supervisor_sequence)
-            print("seq not in simulation: "+str(len(sequences_not_in_simulation)))
-    return sequences_not_in_supervisor,sequences_not_in_simulation
+def intersection_of_lists(list1,list2):
+    set1 = set(list1)
+    set2 = set(list2)
+    return list(set1.intersection(set2))
 
+def substraction_of_lists(list1,list2):
+    set1 = set(list1)
+    set2 = set(list2)
+    return list(set1-set2)
 
-# results_filepath = os.getcwd()+"/results/results_mcts_scenario_A.csv"
-supervisor_sequences_filepath = os.getcwd()+"/models/supremica/CSV/action_sequences_supervisor_scenario_B.csv"
+# def check_supervisor_inclusion(simulation_action_sequences,supervisor_sequences_filepath):
+#     """ this function compares if the action sequences given by the list
+#     action_sequences are included in the action sequences obtained from the
+#     supervisor (given by the file at supervisor_file_path)"""
+#
+#     #read in action sequences
+#     action_sequences_supervisor = list()
+#     with open(supervisor_sequences_filepath) as supervisor_csvfile:
+#         reader_obj = csv.reader(supervisor_csvfile, delimiter=',')
+#         for row in reader_obj:
+#             sequence_as_list = list()
+#             action_sequences_supervisor.append(row)
+#
+#     # compare
+#     sequences_not_in_supervisor = list() # action sequences in simulation, but not in supervisor
+#     for input_sequence in simulation_action_sequences:
+#         # convert list into string for comparison
+#         input_sequence_as_list = input_sequence.split()
+#         if input_sequence_as_list[0] == "['initial',":
+#             del input_sequence_as_list[0] #remove 'initial' tag
+#         input_sequence_as_string = str(input_sequence_as_list)
+#         input_sequence_as_string = remove_separators_from_string(input_sequence_as_string)
+#
+#         #compare with supervisor sequences
+#         supervisor_sequences_as_string = list()
+#         for supervisor_sequence in action_sequences_supervisor:
+#             supervisor_sequence_as_string = supervisor_sequence[0]#.remove('collision') # remove "collision" tag
+#             supervisor_sequence_as_list = supervisor_sequence_as_string.split()
+#             supervisor_sequence_as_list.remove("collision")
+#             supervisor_sequence_as_string = str(supervisor_sequence_as_list)
+#             supervisor_sequence_as_string = remove_separators_from_string(supervisor_sequence_as_string)
+#             supervisor_sequences_as_string.append(supervisor_sequence_as_string)
+#
+#         if not (input_sequence_as_string in supervisor_sequences_as_string):
+#             sequences_not_in_supervisor.append(input_sequence_as_string)
+#
+#     sequences_not_in_simulation = list() # action sequences in supervisor, but not in simulation
+#     for supervisor_sequence in action_sequences_supervisor:
+#         # print("compare: ")
+#         comp_string1 = supervisor_sequence[0].replace(" collision","")
+#         comp_string_list = list()
+#         for seq in simulation_action_sequences:
+#             comp_string2 = remove_separators_from_string(seq)
+#             if "initial " in comp_string2:
+#                 comp_string2.replace("initial ","")
+#             comp_string_list.append(comp_string2)
+#         print("compare:")
+#         print(comp_string1)
+#         print("with:")
+#         print(comp_string_list)
+#         if comp_string1 in comp_string_list:
+#             print("included!")
+#         else:
+#             print("not included")
+#             sequences_not_in_simulation.append(supervisor_sequence)
+#             # print("seq not in simulation: "+str(len(sequences_not_in_simulation)))
+#     print(str(len(sequences_not_in_simulation))+" sequences not in simulation")
+#     return sequences_not_in_supervisor,sequences_not_in_simulation
+
+scenario =  "A"
+
+supervisor_sequences_filepath = os.getcwd()+"/models/supremica/CSV/action_sequences_supervisor_scenario_"+scenario+".csv"
 #esults_filepath = os.getcwd()+"/results/Archive/results_random_scenario_B_04.csv"
 
 search_methods = ["random","mcts","supervisor"]
@@ -99,7 +131,7 @@ for method in search_methods:
     print(method)
     print("\n%%%%%%%%%%%%%%% Evaluate Search Method: "+method+ " %%%%%%%%%%%%%%%\n")
 
-    prefixed = [filename for filename in os.listdir(os.getcwd()+"/results/Scenario_B") if filename.startswith("results_"+method)]
+    prefixed = [filename for filename in os.listdir(os.getcwd()+"/results/Scenario_"+scenario) if filename.startswith("results_"+method)]
     prefixed.sort()
     print("prefixed:")
     print(prefixed)
@@ -120,7 +152,7 @@ for method in search_methods:
         risks_above_threshold = list()
         parameters_above_threshold = list()
 
-        results_filepath = os.getcwd()+"/results/Scenario_B/"+file
+        results_filepath = os.getcwd()+"/results/Scenario_"+scenario+"/"+file
 
         assert os.path.exists(results_filepath), "file does not exist!"
 
@@ -169,16 +201,36 @@ for method in search_methods:
                     print(action_sequences_above_threshold[i] + "; risk: " + str(risks_above_threshold[i])+ "; parameters: " +parameters_above_threshold[i])
 
 
-            # check_supervisor_inclusion(action_sequences_above_threshold,supervisor_sequences_filepath)
+# print("action sequences above threshold total: "+str(len(action_sequences_above_threshold_all_methods)))
+# action_sequences_not_in_supervisor,action_sequences_not_in_simulation = check_supervisor_inclusion(action_sequences_above_threshold_all_methods,supervisor_sequences_filepath)
+# print(str(len(action_sequences_above_threshold_all_methods))+" action sequences found by all methods together")
+# print(str(len(action_sequences_above_threshold_supervisor_only))+" action sequences were found by the formal model.")
+# print(str(len(action_sequences_not_in_supervisor))+" action sequences were found in simulation but not by the formal model.")
+# print(str(len(action_sequences_not_in_simulation))+" action sequences were found by the formal model but not in simulation.")
 
-print("action sequences above threshold total: "+str(len(action_sequences_above_threshold_all_methods)))
-action_sequences_not_in_supervisor,action_sequences_not_in_simulation = check_supervisor_inclusion(action_sequences_above_threshold_simulation_only,supervisor_sequences_filepath)
-print(str(len(action_sequences_above_threshold_all_methods))+" action sequences found by all methods together")
-print(str(len(action_sequences_above_threshold_supervisor_only))+" action sequences were found by the formal model.")
-print(str(len(action_sequences_not_in_supervisor))+" action sequences were found in simulation but not by the formal model.")
-print(str(len(action_sequences_not_in_simulation))+" action sequences were found by the formal model but not in simulation.")
+print("supervisor action sequences: ")
+sup_list = get_supervisor_sequences(supervisor_sequences_filepath)
+sup_list.sort()
+print(sup_list)
+print(len(sup_list))
 
-# print(str(len(action_sequences_not_in_supervisor))+" action sequences found in simulation, but not by the formal model")
-# print(str(len(action_sequences_not_in_simulation))+" action sequences found by the formal model, but not in simulation.")
-# print(str(len(action_sequences_not_in_supervisor))+" action sequences were found in simulation, but not in the formal model.")
-# print(str(len(action_sequences_not_in_simulation))+" action sequences were found in the formal model, but not in simulation.")
+print("simulation action sequences: ")
+sim_list = convert_to_string(action_sequences_above_threshold_all_methods)
+sim_list.sort()
+print(sim_list)
+print(len(sim_list))
+
+print("sequences contained in supervisor and confirmed by simulation (true positives of the supervisor): ")
+sim_intersect_sup = intersection_of_lists(sup_list,sim_list)
+print(sim_intersect_sup)
+print(len(sim_intersect_sup))
+
+print("sequences contained in supervisor, but NOT confirmed in simulation (false positives of the supervisor): ")
+sup_minus_sim = substraction_of_lists(sup_list,sim_list)
+print(sup_minus_sim)
+print(len(sup_minus_sim))
+
+print("sequences NOT contained in supervisor, but identified as hazardous in simulation (false negatives of the supervisor): ")
+sim_minus_sup = substraction_of_lists(sim_list,sup_list)
+print(sim_minus_sup)
+print(len(sim_minus_sup))
