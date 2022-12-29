@@ -4,7 +4,7 @@ import csv
 from xml.dom.minidom import parse, Node
 
 #settings
-max_sequence_length = 9
+max_sequence_length = 10
 save_results = True
 terminate_on_event = False
 filepath_source = "models/supremica/XML/human_model_scenario_A.xml"

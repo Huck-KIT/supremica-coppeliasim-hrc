@@ -19,7 +19,7 @@ import Environment
 from xml.dom.minidom import parse, Node
 
 ########################## Simulation Settings #################################
-scenario =  1# Currently available: {1,2}
+scenario =  3# Currently available: {1,2}
 max_sequence_length = 11 #sequence length expressed as number of actions
 use_random_parameters = True
 log_results = True
@@ -36,13 +36,21 @@ if scenario == 1:
     action_sequence_filepath="models/supremica/CSV/action_sequences_supervisor_scenario_A.csv"
     results_filepath = "results/results_supervisor_scenario_A.csv"
 elif scenario == 2:
-    repetitions_per_sequence = 22
+    repetitions_per_sequence = 1
     motionParametersMin = [0.7, -0.1, -0.1]
     motionParametersMax = [1.3, 0, 0.1]
     motionParametersNominal = [1,0,0]
     automaton_filepath = "models/supremica/XML/supervisor_scenario_B.xml"
     action_sequence_filepath="models/supremica/CSV/action_sequences_supervisor_scenario_B.csv"
     results_filepath = "results/results_supervisor_scenario_B.csv"
+elif scenario == 3:
+    repetitions_per_sequence = 6
+    motionParametersMin = [-0.2,0.8, 1]
+    motionParametersMax = [0.2, 1.2, 1.5]
+    motionParametersNominal = [0,1,1]
+    automaton_filepath = "models/supremica/XML/supervisor_scenario_C.xml"
+    action_sequence_filepath="models/supremica/CSV/action_sequences_supervisor_scenario_C.csv"
+    results_filepath = "results/results_supervisor_scenario_C.csv"
 else:
     "Error! Select valid scenario number (1) in line 9!"
 

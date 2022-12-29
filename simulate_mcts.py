@@ -41,7 +41,7 @@ def print_list(input_list):
 
 class MCTSNode():
 
-    def __init__(self, state, state_internal, env, max_episode_length, writer_obj, parent=None, parent_action=None, use_random_parameters = True, verbose = False):
+    def __init__(self, state, state_internal, env, max_episode_length, writer_obj, parent=None, parent_action=None, use_random_parameters = True, verbose = True):
         self.env = env # simulation environment
         self.state = state
         self._state_internal = state_internal#this is not the mcts state, only an internal stat variable which is used to determine the currently feasible actions!
@@ -144,7 +144,7 @@ class MCTSNode():
         return len(self._untried_actions) == 0
 
     def best_child(self, c_param=0.1):
-        choices_weights = [(c.q() / c.n()) + c_param * np.sqrt((2 * np.log(self.n()) / c.n())) for c in self.children]
+        choices_weights = [(c.q() / c.n()) + c_param * np.sqrt((2 * np.log(self.n() / c.n()))) for c in self.children]
         return self.children[np.argmax(choices_weights)]
 
     def _tree_policy(self):
@@ -152,8 +152,10 @@ class MCTSNode():
 
         while not current_node.is_terminal_node():
             if not current_node.is_fully_expanded():
+                print("expansion")
                 return current_node.expand()
             else:
+                print("fully expanded - traverse")
                 current_node = current_node.best_child()
                 action = self.env.workflow_get_event_by_label(current_node.state[-1])
                 if self._verbose:
@@ -166,6 +168,7 @@ class MCTSNode():
         simulation_no = 500
 
         for i in range(simulation_no):
+            print("Sim run: "+str(i))
             if self._verbose:
                 print_divider()
             v = self._tree_policy()
@@ -180,39 +183,72 @@ class MCTSNode():
 
 
 """--------------------------------- Main -----------------------------------"""
-
-scenario = 1
-random.seed(1)
-
-if scenario == 1:
-    max_episode_length = 10
-    sim_params_min = [-0.2, 0.8, 1]
-    sim_params_max = [0.2, 1.2, 1.5]
-    sim_params_nominal = [0,1,1]
-    workflow_xml_path = "models/supremica/XML/human_model_scenario_A.xml" # automaton xml file (created from supremica)
-    results_filepath = "results/results_mcts_scenario_A.csv" # log file
-elif scenario == 2:
-    max_episode_length = 12
-    sim_params_min = [0.7, -0.1, -0.1]
-    sim_params_max = [1.3, 0, 0.1]
-    sim_params_nominal = [1, 0, 0]
-    workflow_xml_path = "models/supremica/XML/human_model_scenario_B.xml"
-    results_filepath = "results/results_mcts_scenario_B.csv"
-else:
-    print("error - enter valid scenario (must be 1 or 2)")
-
- #This line defines the simulation client, which provides all functions of the remote API
 with b0RemoteApi.RemoteApiClient('b0RemoteApi_V-REP-addOn','b0RemoteApiAddOn') as client:
 
-     #Client is passed to the environment object, which encapsulates all the simulator functionalities
-    env = Environment(client,sim_params_min,sim_params_max,sim_params_nominal,workflow_xml_path,False)
-    env.sim_start()
+    for seed in range(6,11):
+        print("Seed: "+str(seed))
+        scenario = 3
+        random.seed(seed)
 
-    with open(results_filepath, 'w', newline='') as csvfile:
-        fieldnames = ['sequence', 'param', 'risk']
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-        writer.writeheader()
-        # Environment object is passed to the initial mcts node, so that mcts can access the simulation functionalities
-        initial_node = MCTSNode(["initial"],env.states[0],env,max_episode_length,writer)
-        initial_node.search() # trigger mcts
-        env.sim_stop()
+        if scenario == 1:
+            max_episode_length = 10
+            sim_params_min = [-0.2, 0.8, 1]
+            sim_params_max = [0.2, 1.2, 1.5]
+            sim_params_nominal = [0,1,1]
+            workflow_xml_path = "models/supremica/XML/human_model_scenario_A.xml" # automaton xml file (created from supremica)
+            results_filepath = "results/results_mcts_scenario_A.csv" # log file
+        elif scenario == 2:
+            max_episode_length = 12
+            sim_params_min = [0.7, -0.1, -0.1]
+            sim_params_max = [1.3, 0, 0.1]
+            sim_params_nominal = [1, 0, 0]
+            workflow_xml_path = "models/supremica/XML/human_model_scenario_B.xml"
+            results_filepath = "results/results_mcts_scenario_B.csv"
+        elif scenario == 3:
+            max_episode_length = 10
+            sim_params_min = [-0.2, 0.8, 1]
+            sim_params_max = [0.2, 1.2, 1.5]
+            sim_params_nominal = [0,1,1]
+            workflow_xml_path = "models/supremica/XML/human_model_scenario_C.xml" # automaton xml file (created from supremica)
+            results_filepath = "results/results_mcts_scenario_C_"+str(seed)+".csv" # log file
+        elif scenario == 4:
+            max_episode_length = 10
+            sim_params_min = [-0.2, 0.8, 1]
+            sim_params_max = [0.2, 1.2, 1.5]
+            sim_params_nominal = [0,1,1]
+            workflow_xml_path = "models/supremica/XML/human_model_scenario_C.xml" # automaton xml file (created from supremica)
+            results_filepath = "results/results_mcts_scenario_D_"+str(seed)+".csv" # log file
+        elif scenario == 5:
+            max_episode_length = 10
+            sim_params_min = [-0.2, 0.8, 1]
+            sim_params_max = [0.2, 1.2, 1.5]
+            sim_params_nominal = [0,1,1]
+            workflow_xml_path = "models/supremica/XML/human_model_scenario_C.xml" # automaton xml file (created from supremica)
+            results_filepath = "results/results_mcts_scenario_E_"+str(seed)+".csv" # log file
+        elif scenario == 6:
+            max_episode_length = 10
+            sim_params_min = [-0.2, 0.8, 1]
+            sim_params_max = [0.2, 1.2, 1.5]
+            sim_params_nominal = [0,1,1]
+            workflow_xml_path = "models/supremica/XML/human_model_scenario_C.xml" # automaton xml file (created from supremica)
+            results_filepath = "results/results_mcts_scenario_F_"+str(seed)+".csv" # log file
+        else:
+            print("error - enter valid scenario (must be 1 or 2)")
+
+         #This line defines the simulation client, which provides all functions of the remote API
+         #Client is passed to the environment object, which encapsulates all the simulator functionalities
+        env = Environment(client,sim_params_min,sim_params_max,sim_params_nominal,workflow_xml_path,False)
+        env.sim_start()
+        print("New run started...")
+
+        with open(results_filepath, 'w', newline='') as csvfile:
+            fieldnames = ['sequence', 'param', 'risk']
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            writer.writeheader()
+            # Environment object is passed to the initial mcts node, so that mcts can access the simulation functionalities
+            initial_node = MCTSNode(["initial"],env.states[0],env,max_episode_length,writer)
+            initial_node.search() # trigger mcts
+            # env.sim_stop()
+            env.sim_reset()
+            print("End this run ... ")
+    env.sim_stop()

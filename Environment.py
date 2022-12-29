@@ -24,6 +24,7 @@ Simulator:
 """
 
 import csv
+import time
 import random
 from xml.dom.minidom import parse, Node
 
@@ -39,6 +40,7 @@ class Environment:
         self.manual_trigger = manual_trigger
         self.parameters_current = sim_params_nominal
         self._verbose = verbose
+        self._visualization_enabled = True
 
         with open(workflow_xml_path) as file:
             document = parse(file)
@@ -96,8 +98,18 @@ class Environment:
     """ ---------------------- Simulator functions --------------------------"""
 
     def sim_start(self):
+        print("try to start 1")
         self.client.simxSynchronous(True)
+        print("try to start 2")
         self.client.simxStartSimulation(self.client.simxServiceCall())
+        print("try to start 3")
+        # time.sleep(1)
+        # print("sleep")
+        self.client.simxSynchronousTrigger()
+        print("try to start 4")
+
+    def disable_visualization(self):
+        self.client.simxCallScriptFunction("disableVisualization@Visualization","sim.scripttype_childscript",1,self.client.simxServiceCall())
 
     def sim_set_parameters(self,parameters):
         assert len(parameters) == len(self.sim_params_min), "too many/few parameters"
@@ -121,6 +133,10 @@ class Environment:
         self.current_max_risk = 0
 
     def sim_step(self,action,parameters):
+        print("step simulation")
+        if self._visualization_enabled:
+            self.disable_visualization()
+            # self._visualization_enabled = False
         if self.manual_trigger:
             print("press enter to continue")
             input()
