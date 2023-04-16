@@ -117,7 +117,7 @@ def substraction_of_lists(list1,list2):
 #     print(str(len(sequences_not_in_simulation))+" sequences not in simulation")
 #     return sequences_not_in_supervisor,sequences_not_in_simulation
 
-scenario =  "F"
+scenario =  "A"
 
 supervisor_sequences_filepath = os.getcwd()+"/models/supremica/CSV/action_sequences_supervisor_scenario_"+scenario+".csv"
 #esults_filepath = os.getcwd()+"/results/Archive/results_random_scenario_B_04.csv"
